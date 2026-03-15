@@ -612,12 +612,7 @@ animation:roseCascadeFall linear forwards;
 <div class="countdown" id="countdown"></div>
 <div class="finalFade" id="finalFade"></div>
 
-<section id="scanner" class="screen active">
-<div class="card">
-<h1>Scansiona il QR Code</h1>
-<button id="start">Avvia esperienza</button>
-</div>
-</section>
+
 
 <section id="intro" class="screen">
 <div class="stage">
@@ -739,7 +734,7 @@ animation:roseCascadeFall linear forwards;
 </section>
 
 <script>
-const screens = ["scanner", "intro", "book", "letter", "gallery", "message"];
+const screens = ["intro", "book", "letter", "gallery", "message"];
 const ENABLE_MUSIC = false;
 const ENABLE_COUNTDOWN_CHIME = false;
 const ENABLE_MINI_ROSES = true;
@@ -990,7 +985,9 @@ async function start() {
 async function runCountdown() {
   const el = byId('countdown');
   if (!el) return;
+  el.textContent = '3';
   el.classList.add('show', 'glow');
+  await wait(120);
   for (let n = 3; n > 0; n--) {
     el.textContent = n;
     playCountdownChime(n);
@@ -1000,12 +997,13 @@ async function runCountdown() {
   playCountdownChime('star');
   await wait(700);
   el.classList.remove('show', 'glow');
+  await wait(250);
 }
 
 async function startWrapper() {
   try {
     resetExperience();
-    showScreen('scanner');
+    showScreen('intro');
     await wait(50);
     music.currentTime = 0;
     await runCountdown();
@@ -1023,7 +1021,23 @@ async function startWrapper() {
   }
 }
 
-byId('start')?.addEventListener('click', startWrapper);
+let __experienceStarted = false;
+
+function bootExperience() {
+  if (__experienceStarted) return;
+  __experienceStarted = true;
+  requestAnimationFrame(() => {
+    startWrapper();
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootExperience);
+} else {
+  bootExperience();
+}
+
+window.addEventListener('load', bootExperience);
 </script>
 
 </body>
