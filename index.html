@@ -605,6 +605,78 @@ animation:roseCascadeFall linear forwards;
 15%{opacity:1}
 100%{transform:translateY(110vh) rotate(360deg);opacity:0}
 }
+
+@media (max-width: 900px){
+  .top-valance{height:96px}
+  .rail{top:10px;height:14px}
+  .chandelier{width:180px;height:140px;top:44px}
+  .curtain{width:56%}
+  .curtain .tie{width:64px;height:14px}
+  .curtain .tie::after{width:12px;height:22px}
+
+  .introText{width:min(86vw,560px);padding:0 10px}
+  .introText p{font-size:1.1rem}
+
+  .bookContainer{width:min(96vw,720px);height:min(420px,58vh)}
+  .bookRight,.bookPage{padding:20px 16px}
+  .bookTitle{font-size:clamp(1rem,4.4vw,1.35rem);margin-bottom:8px}
+  .bookCopy{font-size:clamp(.84rem,3.2vw,1rem);line-height:1.42}
+  .bookPhoto{height:110px;margin-top:8px;border-radius:8px}
+  .bookCaption{font-size:.78rem;margin-top:6px}
+  .coverTitle{font-size:clamp(1.2rem,4.6vw,1.8rem)}
+  .coverCrest{font-size:1.35rem}
+  .coverSeal{width:54px;height:54px;right:12px;bottom:12px;font-size:.85rem}
+
+  .letterScene{width:100%;height:100%;padding:16px}
+  .letter{max-width:min(92vw,560px);padding:26px 20px;border-radius:10px}
+  .letterTitle{font-size:clamp(1.25rem,5vw,1.8rem)}
+  .letterCopy{font-size:clamp(.95rem,3.4vw,1.08rem);line-height:1.55}
+  .letterSign{font-size:.95rem}
+
+  .galleryWrap{width:min(96vw,720px)}
+  .heart-stage{width:min(92vw,420px);height:min(54vh,420px)}
+  .photo{width:56px;height:56px;border-radius:10px;border-width:2px}
+  .finalTitle{font-size:clamp(1.2rem,5vw,1.8rem);margin-top:8px}
+  .finalSub{font-size:clamp(.92rem,3.2vw,1rem);padding:0 10px}
+  .countdown{font-size:clamp(3rem,18vw,5.2rem)}
+}
+
+@media (max-width: 560px){
+  .top-valance{height:76px}
+  .chandelier{width:136px;height:108px;top:30px;border-bottom-width:3px}
+  .chandelier::after{height:36px;top:-36px}
+  .curtain{width:58%}
+  .introText{top:54%}
+  .introText p{font-size:1rem;line-height:1.35}
+
+  .bookScene{padding:10px}
+  .bookContainer{width:96vw;height:min(360px,52vh)}
+  .bookShadow{bottom:-14px;height:24px}
+  .bookSpine{width:14px;border-radius:8px}
+  .bookCover,.bookRight,.bookPage{top:3%;height:94%;width:48.5%}
+  .bookRight,.bookPage{padding:14px 10px}
+  .bookPage::before,.bookRight::before{inset:8px}
+  .bookTitle{font-size:clamp(.86rem,4.6vw,1.08rem);margin-bottom:6px}
+  .bookCopy{font-size:clamp(.72rem,3.35vw,.9rem);line-height:1.28}
+  .bookPhoto{height:84px;margin-top:6px;border-radius:7px}
+  .bookCaption{font-size:.68rem;margin-top:4px}
+  .bookSign{margin-top:8px;font-size:.72rem}
+  .coverTitle{font-size:clamp(1rem,5vw,1.35rem);top:42%}
+  .coverCrest{font-size:1rem;top:63%}
+  .coverSeal{width:42px;height:42px;right:8px;bottom:8px;font-size:.7rem}
+  .bookCover::before{inset:10px}
+
+  .letter{max-width:94vw;padding:20px 14px}
+  .letterDate{font-size:.64rem;margin-bottom:8px}
+  .letterTitle{font-size:clamp(1.08rem,5.2vw,1.35rem);margin-bottom:10px}
+  .letterCopy{font-size:clamp(.86rem,3.7vw,.98rem);line-height:1.45}
+  .letterSign{font-size:.84rem;margin-top:12px}
+
+  .heart-stage{width:94vw;height:min(46vh,320px)}
+  .photo{width:44px;height:44px;border-radius:8px}
+  .finalTitle{font-size:clamp(1rem,5.6vw,1.35rem)}
+  .finalSub{font-size:clamp(.82rem,3.5vw,.92rem)}
+}
 </style>
 </head>
 
@@ -785,7 +857,9 @@ function heart() {
   const rect = stage.getBoundingClientRect();
   const cx = rect.width / 2;
   const cy = rect.height / 2;
-  const total = 20;
+  const isMobile = window.innerWidth <= 560;
+  const isTablet = window.innerWidth <= 900;
+  const total = isMobile ? 14 : (isTablet ? 16 : 20);
 
   for (let i = 0; i < total; i++) {
     const img = document.createElement('img');
@@ -798,10 +872,13 @@ function heart() {
   const nodes = [...stage.querySelectorAll('.photo')];
   nodes.forEach((n, i) => {
     const t = i / total * Math.PI * 2;
-    const x = cx + 220 * Math.pow(Math.sin(t), 3);
-    const y = cy - (180 * Math.cos(t) - 60 * Math.cos(2 * t) - 20 * Math.cos(3 * t) - 10 * Math.cos(4 * t));
-    const startX = (i % 2 === 0 ? -120 : rect.width + 120) + (Math.random() * 80 - 40);
-    const startY = 80 + Math.random() * Math.max(120, rect.height - 160);
+        const scaleX = isMobile ? 95 : (isTablet ? 140 : 220);
+    const scaleY = isMobile ? 78 : (isTablet ? 110 : 180);
+    const x = cx + scaleX * Math.pow(Math.sin(t), 3);
+    const y = cy - (scaleY * Math.cos(t) - (scaleY * 0.33) * Math.cos(2 * t) - (scaleY * 0.11) * Math.cos(3 * t) - (scaleY * 0.055) * Math.cos(4 * t));
+        const startPad = isMobile ? 60 : 120;
+    const startX = (i % 2 === 0 ? -startPad : rect.width + startPad) + (Math.random() * 50 - 25);
+    const startY = 40 + Math.random() * Math.max(80, rect.height - 80);
 
     n.style.left = startX + 'px';
     n.style.top = startY + 'px';
