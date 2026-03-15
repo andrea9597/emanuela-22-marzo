@@ -230,8 +230,8 @@ bottom:-26px;
 transform:translateX(-50%);
 width:72%;
 height:42px;
-background:radial-gradient(circle, rgba(0,0,0,.48), transparent 70%);
-filter:blur(10px);
+background:radial-gradient(circle, rgba(0,0,0,.52), transparent 70%);
+filter:blur(12px);
 }
 .bookSpine{
 position:absolute;
@@ -409,7 +409,7 @@ animation-delay:.7s;
 0%{transform:rotateY(-165deg)}
 100%{transform:rotateY(0deg)}
 }
-.bookPage.flip{animation:pageTurnReal 3.8s cubic-bezier(.2,.78,.12,1) forwards}
+.bookPage.flip{animation:pageTurnReal 4.6s cubic-bezier(.2,.78,.12,1) forwards}
 @keyframes coverOpen{0%{transform:rotateY(0deg)}100%{transform:rotateY(-165deg)}}
 @keyframes pageTurnReal{
 0%{transform:rotateY(0deg) translateZ(0) skewY(0deg);box-shadow:0 18px 30px rgba(0,0,0,.18), inset 0 0 0 1px rgba(0,0,0,.05)}
@@ -483,7 +483,7 @@ left:50%;
 top:50%;
 transform:translate(-50%,-50%) scale(.45) rotate(var(--r,0deg));
 opacity:0;
-transition:left 2s cubic-bezier(.2,.8,.2,1), top 2s cubic-bezier(.2,.8,.2,1), transform 2s cubic-bezier(.2,.8,.2,1), opacity .8s ease;
+transition:left 2.8s cubic-bezier(.2,.8,.2,1), top 2.8s cubic-bezier(.2,.8,.2,1), transform 2.8s cubic-bezier(.2,.8,.2,1), opacity 1s ease;
 }
 .photo.show{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(var(--r,0deg))}
 .heart-stage.beat{animation:heartBeat 1.8s ease-in-out infinite;transform-origin:center center}
@@ -859,7 +859,7 @@ function heart() {
   const cy = rect.height / 2;
   const isMobile = window.innerWidth <= 560;
   const isTablet = window.innerWidth <= 900;
-  const total = isMobile ? 14 : (isTablet ? 16 : 20);
+  const total = isMobile ? 18 : (isTablet ? 18 : 20);
 
   for (let i = 0; i < total; i++) {
     const img = document.createElement('img');
@@ -872,8 +872,8 @@ function heart() {
   const nodes = [...stage.querySelectorAll('.photo')];
   nodes.forEach((n, i) => {
     const t = i / total * Math.PI * 2;
-        const scaleX = isMobile ? 95 : (isTablet ? 140 : 220);
-    const scaleY = isMobile ? 78 : (isTablet ? 110 : 180);
+        const scaleX = isMobile ? 140 : (isTablet ? 170 : 220);
+    const scaleY = isMobile ? 120 : (isTablet ? 140 : 180);
     const x = cx + scaleX * Math.pow(Math.sin(t), 3);
     const y = cy - (scaleY * Math.cos(t) - (scaleY * 0.33) * Math.cos(2 * t) - (scaleY * 0.11) * Math.cos(3 * t) - (scaleY * 0.055) * Math.cos(4 * t));
         const startPad = isMobile ? 60 : 120;
@@ -891,7 +891,7 @@ function heart() {
     setTimeout(() => {
       n.style.left = x + 'px';
       n.style.top = y + 'px';
-    }, 180 * i);
+    }, 260 * i);
   });
 }
 
@@ -1008,51 +1008,51 @@ async function start() {
   byId('curtainR')?.classList.add('open');
   byId('stageLight')?.classList.add('show');
 
-  await wait(2400);
+  await wait(2600);
   byId('introText')?.classList.add('show');
   createSceneCascade(20);
 
-  await wait(4200);
+  await wait(6200);
   showScreen('book');
   createSceneCascade(14);
   byId('coverSeal')?.classList.add('animate');
 
-  await wait(900);
+  await wait(1200);
   byId('cover')?.classList.add('open');
 
-  await wait(2000);
+  await wait(2400);
   byId('p1')?.classList.add('flip');
 
-  await wait(2300);
+  await wait(3000);
   byId('p2')?.classList.add('flip');
 
-  await wait(2300);
+  await wait(3000);
   byId('p3')?.classList.add('flip');
 
-  await wait(2400);
+  await wait(3200);
   byId('cover')?.classList.remove('open');
   byId('cover')?.classList.add('close');
 
-  await wait(1800);
+  await wait(2200);
   showScreen('letter');
   createSceneCascade(12);
   buildSparkles('letterSparkles', 22);
 
-  await wait(4200);
+  await wait(6200);
   showScreen('gallery');
   createRoseCascade(30);
   buildSparkles('finalSparkles', 34);
   byId('roseBloom')?.classList.add('show');
 
-  await wait(2000);
+  await wait(2400);
   heart();
 
-  await wait(4200);
+  await wait(6200);
   byId('heartStage')?.classList.add('beat');
   createFinalBurst();
   if (ENABLE_FINAL_CASCADE) createRoseCascade(52);
 
-  await wait(2600);
+  await wait(3600);
   showScreen('message');
   createRoseCascade(26);
   buildSparkles('messageSparkles', 24);
