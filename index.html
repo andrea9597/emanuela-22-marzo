@@ -1084,8 +1084,15 @@ animation:roseCascadeFall linear forwards;
   .introText{top:54%}
   .introText p{font-size:1rem;line-height:1.35}
 
-  .bookScene{padding:10px}
-  .bookContainer{width:96vw;height:min(360px,52vh)}
+  .bookScene{
+    padding:16px 10px 150px;
+    align-items:flex-start;
+  }
+  .bookContainer{
+    width:96vw;
+    height:min(300px,42vh);
+    margin-top:18px;
+  }
   .bookShadow{bottom:-14px;height:24px}
   .bookSpine{width:14px;border-radius:8px}
   .bookCover,.bookRight,.bookPage{top:3%;height:94%;width:48.5%}
@@ -1094,11 +1101,18 @@ animation:roseCascadeFall linear forwards;
   /* FIX BUTTONS MOBILE */
   .bookControls{
     position:absolute;
-    bottom:-90px;
+    bottom:-112px;
     left:50%;
     transform:translateX(-50%);
     flex-direction:column;
     gap:8px;
+    width:92vw;
+    max-width:340px;
+  }
+  .bookHint,
+  .bookNextBtn{
+    width:100%;
+    text-align:center;
   }
 
   .heart-stage{width:96vw;height:420px}
