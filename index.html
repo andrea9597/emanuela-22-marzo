@@ -776,10 +776,31 @@ animation:roseCascadeFall linear forwards;
   .finalTitle{font-size:clamp(1rem,5.6vw,1.35rem)}
   .finalSub{font-size:clamp(.82rem,3.5vw,.92rem)}
 }
+
+.audioHint{
+position:fixed;
+left:50%;
+bottom:18px;
+transform:translateX(-50%);
+padding:10px 16px;
+border-radius:999px;
+background:rgba(20,10,20,.88);
+border:1px solid rgba(215,181,109,.32);
+color:var(--gold-soft);
+font-family:'Cinzel',serif;
+font-size:.9rem;
+box-shadow:0 10px 24px rgba(0,0,0,.28);
+opacity:0;
+pointer-events:none;
+transition:opacity .3s ease;
+z-index:60;
+}
+.audioHint.show{opacity:1;pointer-events:auto}
 </style>
 </head>
 
 <body>
+<div class="audioHint" id="audioHint">Tocca lo schermo per attivare la musica ✨</div>
 <div class="countdown" id="countdown"></div>
 <div class="finalFade" id="finalFade"></div>
 
@@ -946,7 +967,44 @@ const ENABLE_MINI_ROSES = true;
 const ENABLE_FINAL_CASCADE = true;
 
 const music = new Audio('https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8e4d2d5c3.mp3?filename=romantic-background-112199.mp3');
+let musicFadeInterval = null;
+let musicUnlocked = false;
 music.volume = 0; // start silent for fade-in
+
+function showAudioHint(show = true){
+  const hint = byId('audioHint');
+  if(!hint) return;
+  hint.classList.toggle('show', show);
+}
+
+function startMusicFadeIn(){
+  if (!ENABLE_MUSIC) return;
+  if (musicFadeInterval) clearInterval(musicFadeInterval);
+  music.volume = 0;
+  const playPromise = music.play();
+  if (playPromise && typeof playPromise.catch === 'function') {
+    playPromise.catch(() => {
+      showAudioHint(true);
+    });
+  }
+  const target = 0.4;
+  const step = 0.01;
+  musicFadeInterval = setInterval(() => {
+    if (music.volume < target) {
+      music.volume = Math.min(target, music.volume + step);
+    } else {
+      clearInterval(musicFadeInterval);
+      musicFadeInterval = null;
+    }
+  }, 120);
+}
+
+function unlockMusicOnce(){
+  if (!ENABLE_MUSIC || musicUnlocked) return;
+  musicUnlocked = true;
+  showAudioHint(false);
+  startMusicFadeIn();
+}
 
 function byId(id) {
   return document.getElementById(id);
@@ -1161,6 +1219,10 @@ function createFinalBurst() {
   }
 }
 
+document.addEventListener('pointerdown', unlockMusicOnce, { passive: true });
+document.addEventListener('touchstart', unlockMusicOnce, { passive: true });
+document.addEventListener('click', unlockMusicOnce, { passive: true });
+
 function resetExperience() {
   byId('curtainL')?.classList.remove('open');
   byId('curtainR')?.classList.remove('open');
@@ -1261,24 +1323,14 @@ async function startWrapper() {
     showScreen('intro');
     await wait(50);
     music.currentTime = 0;
+    showAudioHint(false);
     await runCountdown();
     if (ENABLE_MINI_ROSES) {
       createMiniRoses();
       createSceneCascade(12);
     }
     if (ENABLE_MUSIC) {
-      music.volume = 0;
-      music.play().catch(() => {});
-
-      const target = 0.4;
-      const step = 0.01;
-      const interval = setInterval(() => {
-        if (music.volume < target) {
-          music.volume = Math.min(target, music.volume + step);
-        } else {
-          clearInterval(interval);
-        }
-      }, 120);
+      startMusicFadeIn();
     }
     await start();
   } catch (error) {
