@@ -777,30 +777,12 @@ animation:roseCascadeFall linear forwards;
   .finalSub{font-size:clamp(.82rem,3.5vw,.92rem)}
 }
 
-.audioHint{
-position:fixed;
-left:50%;
-bottom:18px;
-transform:translateX(-50%);
-padding:10px 16px;
-border-radius:999px;
-background:rgba(20,10,20,.88);
-border:1px solid rgba(215,181,109,.32);
-color:var(--gold-soft);
-font-family:'Cinzel',serif;
-font-size:.9rem;
-box-shadow:0 10px 24px rgba(0,0,0,.28);
-opacity:0;
-pointer-events:none;
-transition:opacity .3s ease;
-z-index:60;
-}
-.audioHint.show{opacity:1;pointer-events:auto}
+
 </style>
 </head>
 
 <body>
-<div class="audioHint" id="audioHint">Tocca lo schermo per attivare la musica ✨</div>
+
 <div class="countdown" id="countdown"></div>
 <div class="finalFade" id="finalFade"></div>
 
@@ -971,11 +953,6 @@ let musicFadeInterval = null;
 let musicUnlocked = false;
 music.volume = 0; // start silent for fade-in
 
-function showAudioHint(show = true){
-  const hint = byId('audioHint');
-  if(!hint) return;
-  hint.classList.toggle('show', show);
-}
 
 function startMusicFadeIn(){
   if (!ENABLE_MUSIC) return;
@@ -984,7 +961,7 @@ function startMusicFadeIn(){
   const playPromise = music.play();
   if (playPromise && typeof playPromise.catch === 'function') {
     playPromise.catch(() => {
-      showAudioHint(true);
+      
     });
   }
   const target = 0.4;
@@ -1002,7 +979,7 @@ function startMusicFadeIn(){
 function unlockMusicOnce(){
   if (!ENABLE_MUSIC || musicUnlocked) return;
   musicUnlocked = true;
-  showAudioHint(false);
+  
   startMusicFadeIn();
 }
 
