@@ -786,11 +786,12 @@ z-index:2;
 .bookControls{
   position:absolute;
   left:50%;
-  bottom:-54px;
+  bottom:-70px;
   transform:translateX(-50%);
   display:flex;
   align-items:center;
   gap:12px;
+  z-index:20;
 }
 .bookHint{
   padding:10px 16px;
@@ -1089,24 +1090,22 @@ animation:roseCascadeFall linear forwards;
   .bookSpine{width:14px;border-radius:8px}
   .bookCover,.bookRight,.bookPage{top:3%;height:94%;width:48.5%}
   .bookRight,.bookPage{padding:14px 10px}
-  .bookPage::before,.bookRight::before{inset:8px}
-  .bookTitle{font-size:clamp(.86rem,4.6vw,1.08rem);margin-bottom:6px}
-  .bookCopy{font-size:clamp(.72rem,3.35vw,.9rem);line-height:1.28}
-  .bookPhoto{height:84px;margin-top:6px;border-radius:7px}
-  .bookCaption{font-size:.68rem;margin-top:4px}
-  .bookSign{margin-top:8px;font-size:.72rem}
-  .coverTitle{font-size:clamp(1rem,5vw,1.35rem);top:42%}
-  .coverCrest{font-size:1rem;top:63%}
-  .coverSeal{width:42px;height:42px;right:8px;bottom:8px;font-size:.7rem}
-  .bookCover::before{inset:10px}
 
-  .letter{max-width:94vw;padding:20px 14px}
-  .letterDate{font-size:.64rem;margin-bottom:8px}
-  .letterTitle{font-size:clamp(1.08rem,5.2vw,1.35rem);margin-bottom:10px}
-  .letterCopy{font-size:clamp(.86rem,3.7vw,.98rem);line-height:1.45}
-  .letterSign{font-size:.84rem;margin-top:12px}
+  /* FIX BUTTONS MOBILE */
+  .bookControls{
+    position:absolute;
+    bottom:-90px;
+    left:50%;
+    transform:translateX(-50%);
+    flex-direction:column;
+    gap:8px;
+  }
 
-  .heart-stage{width:92vw;height:min(42vh,280px)}
+  .heart-stage{width:96vw;height:420px}
+  .photo{width:44px;height:44px;border-radius:8px}
+  .finalTitle{font-size:clamp(1rem,5.6vw,1.35rem)}
+  .finalSub{font-size:clamp(.82rem,3.5vw,.92rem)}
+}
   .photo{width:40px;height:40px;border-radius:8px}
   .finalTitle{font-size:clamp(1rem,5.6vw,1.35rem)}
   .finalSub{font-size:clamp(.82rem,3.5vw,.92rem)}
