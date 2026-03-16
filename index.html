@@ -1300,8 +1300,7 @@ async function startWrapper() {
     showScreen('intro');
     await wait(50);
     music.currentTime = 0;
-    showAudioHint(false);
-    await runCountdown();
+        await runCountdown();
     if (ENABLE_MINI_ROSES) {
       createMiniRoses();
       createSceneCascade(12);
