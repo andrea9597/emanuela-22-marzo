@@ -290,6 +290,297 @@ z-index:2;
 }
 .introText.show{opacity:1}
 
+/* PRELUDE SCENES */
+.wordScene,
+.avatarScene{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  padding:24px;
+}
+.wordCard,
+.avatarCard{
+  position:relative;
+  width:min(86vw,760px);
+  padding:34px 26px;
+  border-radius:28px;
+  background:linear-gradient(180deg, rgba(29,12,24,.72), rgba(18,8,15,.88));
+  border:1px solid rgba(215,181,109,.32);
+  box-shadow:0 18px 50px rgba(0,0,0,.38);
+  backdrop-filter:blur(8px);
+  text-align:center;
+}
+.wordCard::before,
+.avatarCard::before{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid rgba(241,223,176,.14);
+  border-radius:18px;
+  pointer-events:none;
+}
+.wordTitle{
+  font-family:'Cinzel',serif;
+  font-size:clamp(2.6rem,8vw,5.2rem);
+  color:var(--gold-soft);
+  letter-spacing:.08em;
+  text-shadow:0 0 18px rgba(255,220,160,.14);
+}
+.avatarCard{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+}
+.avatarBubble{
+  max-width:520px;
+  padding:14px 18px;
+  border-radius:20px;
+  background:rgba(255,247,231,.94);
+  color:#6d1a34;
+  font-family:'Cinzel',serif;
+  font-size:clamp(1rem,3.5vw,1.35rem);
+  box-shadow:0 10px 22px rgba(0,0,0,.14);
+}
+.avatarFigure{
+  position:relative;
+  width:190px;
+  height:220px;
+}
+.avatarHead{
+  position:absolute;
+  left:50%;
+  top:18px;
+  transform:translateX(-50%);
+  width:74px;
+  height:74px;
+  border-radius:50%;
+  background:radial-gradient(circle at 40% 35%, #ffd9c6, #efb192 72%);
+  z-index:2;
+}
+.avatarHair{
+  position:absolute;
+  left:50%;
+  top:8px;
+  transform:translateX(-50%);
+  width:92px;
+  height:88px;
+  border-radius:48px 48px 38px 38px;
+  background:linear-gradient(180deg,#412014,#6a3a20);
+}
+.avatarBody{
+  position:absolute;
+  left:50%;
+  top:82px;
+  transform:translateX(-50%);
+  width:112px;
+  height:102px;
+  border-radius:28px 28px 18px 18px;
+  background:linear-gradient(180deg,#f3c2d4,#d66a97);
+}
+.avatarArm{
+  position:absolute;
+  top:104px;
+  width:54px;
+  height:18px;
+  border-radius:999px;
+  background:linear-gradient(180deg,#efb192,#d79a7f);
+}
+.avatarArm.left{left:24px;transform:rotate(18deg)}
+.avatarArm.right{right:24px;transform:rotate(-18deg)}
+.avatarCake{
+  position:absolute;
+  left:50%;
+  top:112px;
+  transform:translateX(-50%);
+  width:86px;
+  height:56px;
+}
+.avatarCakeBase{
+  position:absolute;
+  bottom:0;
+  width:86px;
+  height:34px;
+  border-radius:10px;
+  background:linear-gradient(180deg,#fff0d8,#e9b77d);
+  box-shadow:0 6px 12px rgba(0,0,0,.14);
+}
+.avatarCakeTop{
+  position:absolute;
+  left:10px;
+  bottom:22px;
+  width:66px;
+  height:18px;
+  border-radius:10px;
+  background:linear-gradient(180deg,#ffd3de,#f59aba);
+}
+.avatarCandle{
+  position:absolute;
+  left:50%;
+  bottom:38px;
+  transform:translateX(-50%);
+  width:8px;
+  height:20px;
+  border-radius:3px;
+  background:linear-gradient(180deg,#fff6dd,#ead4a3);
+}
+.avatarCandle::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:-12px;
+  transform:translateX(-50%);
+  width:11px;
+  height:14px;
+  background:radial-gradient(circle at 50% 70%, #ffd86d 0 36%, #ff9d3f 37% 72%, transparent 73%);
+  animation:flicker 1.2s ease-in-out infinite alternate;
+}
+.avatarName{
+  font-family:'Cinzel',serif;
+  font-size:clamp(1.2rem,4vw,1.6rem);
+  color:var(--gold-soft);
+}
+.birthdaySceneCard{
+  position:relative;
+  width:min(88vw,760px);
+  padding:34px 24px 30px;
+  border-radius:30px;
+  background:linear-gradient(180deg, rgba(29,12,24,.72), rgba(18,8,15,.9));
+  border:1px solid rgba(215,181,109,.32);
+  box-shadow:0 18px 50px rgba(0,0,0,.38);
+  text-align:center;
+  overflow:hidden;
+}
+.birthdaySceneCard::before{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid rgba(241,223,176,.14);
+  border-radius:20px;
+  pointer-events:none;
+}
+.birthdayCakeHero{
+  position:relative;
+  width:170px;
+  height:160px;
+  margin:0 auto 18px;
+}
+.birthdayPlate{
+  position:absolute;
+  left:50%;
+  bottom:10px;
+  transform:translateX(-50%);
+  width:156px;
+  height:18px;
+  border-radius:999px;
+  background:linear-gradient(180deg,#f4ead8,#ccb38e);
+  box-shadow:0 8px 16px rgba(0,0,0,.16);
+}
+.birthdayTierBottom,
+.birthdayTierTop{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:14px;
+  box-shadow:0 10px 18px rgba(0,0,0,.14);
+}
+.birthdayTierBottom{
+  bottom:26px;
+  width:132px;
+  height:58px;
+  background:linear-gradient(180deg,#fff3df,#efc17f);
+}
+.birthdayTierTop{
+  bottom:74px;
+  width:88px;
+  height:42px;
+  background:linear-gradient(180deg,#ffe0ea,#f19abb);
+}
+.birthdayIcingBottom,
+.birthdayIcingTop{
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height:16px;
+  border-radius:14px 14px 8px 8px;
+  background:linear-gradient(180deg,#fff7fb,#ffd2e1);
+}
+.birthdayIcingBottom::after,
+.birthdayIcingTop::after{
+  content:"";
+  position:absolute;
+  left:8px;
+  right:8px;
+  top:8px;
+  height:12px;
+  background:radial-gradient(circle at 8px 0,#ffd2e1 0 7px,transparent 8px),
+             radial-gradient(circle at 28px 0,#ffd2e1 0 7px,transparent 8px),
+             radial-gradient(circle at 48px 0,#ffd2e1 0 7px,transparent 8px),
+             radial-gradient(circle at 68px 0,#ffd2e1 0 7px,transparent 8px),
+             radial-gradient(circle at 88px 0,#ffd2e1 0 7px,transparent 8px);
+}
+.birthdayIcingTop::after{
+  left:6px;
+  right:6px;
+  background:radial-gradient(circle at 8px 0,#ffdce8 0 6px,transparent 7px),
+             radial-gradient(circle at 24px 0,#ffdce8 0 6px,transparent 7px),
+             radial-gradient(circle at 40px 0,#ffdce8 0 6px,transparent 7px),
+             radial-gradient(circle at 56px 0,#ffdce8 0 6px,transparent 7px);
+}
+.birthdayCandle{
+  position:absolute;
+  width:8px;
+  height:26px;
+  top:-22px;
+  background:linear-gradient(180deg,#fff8eb,#ecd6ab);
+  border-radius:3px;
+}
+.birthdayCandle::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:-12px;
+  transform:translateX(-50%);
+  width:10px;
+  height:14px;
+  background:radial-gradient(circle at 50% 70%, #ffd86d 0 36%, #ff9d3f 37% 72%, transparent 73%);
+  animation:flicker 1.25s ease-in-out infinite alternate;
+}
+.birthdayCandle.c1{left:18px}
+.birthdayCandle.c2{left:40px}
+.birthdayCandle.c3{left:62px}
+.birthdayMain{
+  font-family:'Cinzel',serif;
+  font-size:clamp(2rem,7vw,4.2rem);
+  color:var(--gold-soft);
+  letter-spacing:.06em;
+  line-height:1.08;
+  text-shadow:0 0 18px rgba(255,220,160,.14);
+}
+.birthdaySub{
+  margin-top:12px;
+  font-size:clamp(1rem,3vw,1.22rem);
+  color:#f5e8cd;
+}
+.birthdaySpark{
+  position:absolute;
+  font-size:1.2rem;
+  opacity:.82;
+  animation:sparkTwinkle 2.2s ease-in-out infinite alternate;
+}
+.birthdaySpark.s1{top:18px;left:28px}
+.birthdaySpark.s2{top:28px;right:34px;animation-delay:.5s}
+.birthdaySpark.s3{bottom:28px;left:38px;animation-delay:.8s}
+.birthdaySpark.s4{bottom:20px;right:26px;animation-delay:1.2s}
+@keyframes sparkTwinkle{
+  from{transform:scale(.9) rotate(-6deg);opacity:.55}
+  to{transform:scale(1.08) rotate(6deg);opacity:1}
+}
+
 /* BOOK */
 .bookScene{
   display:flex;
@@ -491,6 +782,37 @@ z-index:2;
   100%{transform:scaleX(.72);opacity:.06}
 }
 
+/* BOOK CONTROLS */
+.bookControls{
+  position:absolute;
+  left:50%;
+  bottom:-54px;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.bookHint{
+  padding:10px 16px;
+  border-radius:999px;
+  background:rgba(20,10,20,.82);
+  border:1px solid rgba(215,181,109,.25);
+  color:var(--gold-soft);
+  font-family:'Cinzel',serif;
+  font-size:.9rem;
+}
+.bookNextBtn{
+  padding:10px 16px;
+  border-radius:999px;
+  border:none;
+  cursor:pointer;
+  font-family:'Cinzel',serif;
+  background:linear-gradient(135deg,#ead39b,#b58a43);
+  color:#2d1820;
+  box-shadow:0 10px 20px rgba(181,138,67,.22);
+}
+.bookNextBtn.hidden{display:none}
+
 /* LETTER */
 .letterScene{position:relative;width:min(760px,90vw);height:min(520px,70vh);display:flex;align-items:center;justify-content:center}
 .letterGlow{position:absolute;inset:12% 18%;background:radial-gradient(circle, rgba(255,220,150,.18), transparent 70%);filter:blur(24px)}
@@ -544,23 +866,38 @@ opacity:.9;
 /* HEART */
 .galleryWrap{position:relative;text-align:center;width:min(980px,94vw)}
 .heart-stage{position:relative;width:520px;height:500px;margin:auto}
+.heartGlow{
+position:absolute;
+left:50%;
+top:50%;
+width:320px;
+height:300px;
+transform:translate(-50%,-50%) scale(.82);
+border-radius:50%;
+background:radial-gradient(circle, rgba(255,214,150,.26) 0%, rgba(255,120,160,.15) 35%, transparent 72%);
+filter:blur(16px);
+opacity:0;
+transition:opacity .8s ease, transform .8s ease;
+pointer-events:none;
+}
+.heartGlow.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
 .photo{
 position:absolute;
-width:74px;
-height:74px;
+width:66px;
+height:66px;
 border-radius:14px;
 border:3px solid white;
 object-fit:cover;
 left:50%;
 top:50%;
-transform:translate(-50%,-50%) scale(.4) rotate(var(--r,0deg));
+transform:translate(-50%,-50%) scale(.42) rotate(var(--r,0deg));
 opacity:0;
 box-shadow:0 10px 18px rgba(0,0,0,.22);
-transition:left 2.4s cubic-bezier(.2,.8,.2,1), top 2.4s cubic-bezier(.2,.8,.2,1), transform 2.4s cubic-bezier(.2,.8,.2,1), opacity .8s ease;
+transition:left 1.9s cubic-bezier(.2,.8,.2,1), top 1.9s cubic-bezier(.2,.8,.2,1), transform 1.9s cubic-bezier(.2,.8,.2,1), opacity .7s ease;
 }
 .photo.show{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(var(--r,0deg))}
 .heart-stage.beat{animation:heartBeat 1.8s ease-in-out infinite;transform-origin:center center}
-@keyframes heartBeat{0%,100%{transform:scale(1)}25%{transform:scale(1.03)}40%{transform:scale(1)}60%{transform:scale(1.05)}80%{transform:scale(1.01)}}
+@keyframes heartBeat{0%,100%{transform:scale(1)}22%{transform:scale(1.05)}40%{transform:scale(1)}62%{transform:scale(1.08)}82%{transform:scale(1.02)}}
 .finalTitle{font-family:'Cinzel',serif;font-size:clamp(1.8rem,3vw,2.4rem);margin-top:12px;color:var(--gold-soft);text-shadow:0 0 18px rgba(255,220,160,.15)}
 .finalSub{max-width:700px;margin:8px auto 0;font-size:clamp(1rem,1.8vw,1.18rem)}
 .finalFade{
@@ -590,9 +927,7 @@ animation:fall linear forwards;
 }
 
 /* PHOTO ROTATION */
-.photo.spin{animation:photoSpin 6s linear infinite}
-@keyframes photoSpin{
-0%{transform:translate(-50%,-50%) scale(1) rotate(var(--r,0deg))}
+
 50%{transform:translate(-50%,-50%) scale(1.02) rotate(calc(var(--r,0deg) + 6deg))}
 100%{transform:translate(-50%,-50%) scale(1) rotate(var(--r,0deg))}
 }
@@ -778,6 +1113,75 @@ animation:roseCascadeFall linear forwards;
 }
 
 
+
+/* RISING MAGIC */
+/* RISING EMOJI MAGIC */
+.floatEmoji{
+position:fixed;
+pointer-events:none;
+z-index:12;
+font-size:20px;
+animation:magicRise linear forwards;
+}
+@keyframes magicRise{
+0%{transform:translateY(18vh) scale(.7) rotate(0deg);opacity:0}
+15%{opacity:.95}
+100%{transform:translateY(-110vh) scale(1.15) rotate(180deg);opacity:0}
+}
+
+/* ENVELOPE */
+.envelopeWrap{
+margin-top:18px;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:10px;
+opacity:0;
+pointer-events:none;
+transform:translateY(14px);
+transition:opacity .5s ease, transform .5s ease;
+}
+.envelopeWrap.show{
+opacity:1;
+pointer-events:auto;
+transform:translateY(0);
+}
+.envelopeBtn{
+position:relative;
+width:110px;
+height:74px;
+border:none;
+background:linear-gradient(180deg,#f7ecd8,#e8d4b2);
+border-radius:8px;
+box-shadow:0 14px 26px rgba(0,0,0,.24), inset 0 0 0 1px rgba(122,89,48,.18);
+cursor:pointer;
+}
+.envelopeBtn::before{
+content:"";
+position:absolute;
+left:0;right:0;top:0;
+margin:auto;
+width:0;height:0;
+border-left:55px solid transparent;
+border-right:55px solid transparent;
+border-top:38px solid rgba(255,255,255,.55);
+}
+.envelopeBtn::after{
+content:"✉";
+position:absolute;
+inset:0;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:1.5rem;
+color:#8d6630;
+}
+.envelopeText{
+font-family:'Cinzel',serif;
+font-size:.95rem;
+color:var(--gold-soft);
+text-shadow:0 0 10px rgba(255,220,160,.12);
+}
 </style>
 </head>
 
@@ -787,6 +1191,56 @@ animation:roseCascadeFall linear forwards;
 <div class="finalFade" id="finalFade"></div>
 
 
+
+<section id="prelude1" class="screen">
+<div class="wordScene">
+  <div class="wordCard">
+    <div class="wordTitle">Tanti</div>
+  </div>
+</div>
+</section>
+
+<section id="prelude2" class="screen">
+<div class="wordScene">
+  <div class="wordCard">
+    <div class="wordTitle">Auguri</div>
+  </div>
+</div>
+</section>
+
+<section id="prelude3" class="screen">
+<div class="wordScene">
+  <div class="wordCard">
+    <div class="wordTitle">Emanuela</div>
+  </div>
+</div>
+</section>
+
+<section id="prelude4" class="screen">
+<div class="wordScene">
+  <div class="birthdaySceneCard">
+    <div class="birthdaySpark s1">✨</div>
+    <div class="birthdaySpark s2">🌟</div>
+    <div class="birthdaySpark s3">✨</div>
+    <div class="birthdaySpark s4">💫</div>
+    <div class="birthdayCakeHero">
+      <div class="birthdayTierTop">
+        <div class="birthdayIcingTop"></div>
+        <div class="birthdayCandle c1"></div>
+        <div class="birthdayCandle c2"></div>
+        <div class="birthdayCandle c3"></div>
+      </div>
+      <div class="birthdayTierBottom">
+        <div class="birthdayIcingBottom"></div>
+      </div>
+      <div class="birthdayPlate"></div>
+    </div>
+    <div style="font-size:46px;margin-bottom:8px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.18));">🐻🎀</div>
+    <div class="birthdayMain">Tanti Auguri</div>
+    <div class="birthdaySub">Emanuela ✦ Una torta, un desiderio e una giornata piena di magia.</div>
+  </div>
+</div>
+</section>
 
 <section id="intro" class="screen">
 <div class="stage">
@@ -883,6 +1337,10 @@ animation:roseCascadeFall linear forwards;
         <div class="bookSign">Con affetto sincero ✦</div>
       </div>
     </div>
+      <div class="bookControls">
+      <div class="bookHint">Sfoglia tu il libro ✨</div>
+      <button class="bookNextBtn" id="bookNextBtn">Pagina successiva</button>
+    </div>
   </div>
 </div>
 </section>
@@ -935,14 +1393,18 @@ animation:roseCascadeFall linear forwards;
       <path fill="url(#g)" d="M50 18c8-10 26-4 26 8 0 8-6 12-11 15 9 1 17 7 17 16 0 12-12 20-32 20s-32-8-32-20c0-9 8-15 17-16-5-3-11-7-11-15 0-12 18-18 26-8z"/>
     </svg>
   </div>
-  <div class="heart-stage" id="heartStage"></div>
+  <div class="heart-stage" id="heartStage"><div class="heartGlow" id="heartGlow"></div></div>
   <div class="finalTitle">Buon compleanno Emanuela ❤️</div>
   <div class="finalSub">Una piccola esperienza pensata per rendere questo giorno ancora più speciale.</div>
+  <div class="envelopeWrap" id="envelopeWrap">
+    <button class="envelopeBtn" id="envelopeBtn" aria-label="Apri l'ultima lettera"></button>
+    <div class="envelopeText">Apri l'ultima lettera</div>
+  </div>
 </div>
 </section>
 
 <script>
-const screens = ["intro", "book", "letter", "gallery", "message"];
+const screens = ["prelude1", "prelude2", "prelude3", "prelude4", "intro", "book", "letter", "gallery", "message"];
 const ENABLE_MUSIC = true;
 const ENABLE_COUNTDOWN_CHIME = false;
 const ENABLE_MINI_ROSES = true;
@@ -1019,23 +1481,24 @@ function heart() {
   createPetals();
 
   const stage = byId('heartStage');
+  const glow = byId('heartGlow');
   if (!stage) return;
-  stage.innerHTML = '';
 
-  const rect = stage.getBoundingClientRect();
-
-  /*
-   Improved heart layout using predefined curve samples
-   This creates a cleaner visual heart than the raw formula
-  */
+  // clean previous
+  stage.querySelectorAll('.photo').forEach(el => el.remove());
+  stage.classList.remove('beat');
+  glow?.classList.remove('show');
 
   const isMobile = window.innerWidth <= 560;
-  const count = isMobile ? 14 : 20;
+
+  // FEW PHOTOS BUT A CLEAR HEART SHAPE
+  const total = isMobile ? 14 : 18;
 
   const points = [];
 
-  for (let i = 0; i < count; i++) {
-    const t = Math.PI - (i / (count - 1)) * Math.PI * 2;
+  // parametric heart curve (scaled)
+  for (let i = 0; i < total; i++) {
+    const t = Math.PI - (i / (total - 1)) * Math.PI * 2;
 
     const x = 16 * Math.pow(Math.sin(t), 3);
     const y =
@@ -1044,63 +1507,41 @@ function heart() {
       2 * Math.cos(3 * t) -
       Math.cos(4 * t);
 
-    points.push([x, y]);
+    // scale and center
+    const px = 50 + x * 1.6;
+    const py = 46 - y * 1.5;
+
+    points.push([px, py]);
   }
 
-  const xs = points.map(p => p[0]);
-  const ys = points.map(p => p[1]);
+  // images start from center
+  const start = [50, 55];
 
-  const minX = Math.min(...xs);
-  const maxX = Math.max(...xs);
-  const minY = Math.min(...ys);
-  const maxY = Math.max(...ys);
-
-  const width = maxX - minX;
-  const height = maxY - minY;
-
-  const normalized = points.map(([x, y]) => [
-    (x - minX) / width,
-    1 - (y - minY) / height
-  ]);
-
-  normalized.forEach((pt, i) => {
+  points.forEach((pt, i) => {
     const img = document.createElement('img');
-
     img.src = `https://picsum.photos/300?heart=${i}`;
     img.className = 'photo';
 
-    img.style.setProperty('--r', `${(Math.random() - 0.5) * 6}deg`);
+    img.style.left = start[0] + '%';
+    img.style.top = start[1] + '%';
+
+    img.style.setProperty('--r', `${(Math.random() - 0.5) * 1.2}deg`);
 
     stage.appendChild(img);
-  });
-
-  const nodes = [...stage.querySelectorAll('.photo')];
-
-  nodes.forEach((n, i) => {
-    const [nx, ny] = normalized[i];
-
-    const targetX = nx * rect.width;
-    const targetY = ny * rect.height;
-
-    /* photos start scattered around screen */
-
-    const startX = rect.width / 2 + (Math.random() - 0.5) * rect.width * 2.2;
-    const startY = rect.height / 2 + (Math.random() - 0.5) * rect.height * 2.2;
-
-    n.style.left = startX + 'px';
-    n.style.top = startY + 'px';
 
     setTimeout(() => {
-      n.classList.add('show');
-      n.style.left = targetX + 'px';
-      n.style.top = targetY + 'px';
-    }, 180 * i);
+      img.classList.add('show');
+      img.style.left = pt[0] + '%';
+      img.style.top = pt[1] + '%';
+    }, 110 * i);
   });
 
-  /* slight random spin animation */
   setTimeout(() => {
-    nodes.forEach(n => n.classList.add('spin'));
-  }, 2000);
+    glow?.classList.add('show');
+    stage.classList.add('beat');
+    createMagicRise(12);
+    buildSparkles('finalSparkles', 36);
+  }, 2200);
 }
 
 
@@ -1152,6 +1593,50 @@ function createSceneCascade(amount = 18) {
     document.body.appendChild(r);
     setTimeout(() => r.remove(), 8500);
   }
+}
+
+function createMagicRise(amount = 18) {
+  const emojis = ['🌹','🌸','✨','⭐','💫'];
+  for (let i = 0; i < amount; i++) {
+    const el = document.createElement('span');
+    el.className = 'floatEmoji';
+    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    el.style.left = (Math.random() * 100) + 'vw';
+    el.style.bottom = (-10 - Math.random() * 20) + 'vh';
+    el.style.animationDuration = (4.6 + Math.random() * 3.2) + 's';
+    el.style.animationDelay = (Math.random() * 1.2) + 's';
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 9000);
+  }
+}
+
+let finalMagicInterval = null;
+
+function startFinalMagic(){
+  if(finalMagicInterval) clearInterval(finalMagicInterval);
+  finalMagicInterval = setInterval(()=>{
+    createMagicRise(6);
+  },1200);
+}
+
+function stopFinalMagic(){
+  if(finalMagicInterval){
+    clearInterval(finalMagicInterval);
+    finalMagicInterval = null;
+  }
+}
+
+function showEnvelope() {
+  const wrap = byId('envelopeWrap');
+  const btn = byId('envelopeBtn');
+  if (!wrap || !btn) return;
+  wrap.classList.add('show');
+  btn.onclick = () => {
+    wrap.classList.remove('show');
+    showScreen('message');
+    buildSparkles('messageSparkles', 24);
+    byId('finalFade')?.classList.add('show');
+  };
 }
 
 function playCountdownChime(step) {
@@ -1212,12 +1697,73 @@ function resetExperience() {
   byId('coverSeal')?.classList.remove('animate');
   byId('roseBloom')?.classList.remove('show','burst');
   byId('heartStage')?.classList.remove('beat');
-  byId('heartStage') && (byId('heartStage').innerHTML = '');
+  if (byId('heartStage')) {
+    byId('heartStage').querySelectorAll('.photo').forEach(el => el.remove());
+    const glow = byId('heartGlow');
+    if (!glow) {
+      const g = document.createElement('div');
+      g.className = 'heartGlow';
+      g.id = 'heartGlow';
+      byId('heartStage').appendChild(g);
+    }
+  }
   byId('finalFade')?.classList.remove('show');
-  document.querySelectorAll('.petalFall, .miniRose, .roseCascade, .sceneRose').forEach(el => el.remove());
+  stopFinalMagic();
+  document.querySelectorAll('.petalFall, .miniRose, .roseCascade, .sceneRose, .floatEmoji').forEach(el => el.remove());
+  byId('envelopeWrap')?.classList.remove('show');
+  const envBtn = byId('envelopeBtn');
+  if (envBtn) envBtn.onclick = null;
+  const nextBtn = byId('bookNextBtn');
+  if (nextBtn) {
+    nextBtn.classList.remove('hidden');
+    nextBtn.onclick = null;
+  }
+}
+
+function waitForBookReading() {
+  return new Promise(resolve => {
+    const nextBtn = byId('bookNextBtn');
+    const pages = [byId('p1'), byId('p2'), byId('p3')].filter(Boolean);
+    if (!nextBtn || pages.length === 0) {
+      resolve();
+      return;
+    }
+    let index = 0;
+    nextBtn.classList.remove('hidden');
+    nextBtn.textContent = 'Pagina successiva';
+    nextBtn.onclick = () => {
+      if (index < pages.length) {
+        pages[index].classList.add('flip');
+        index += 1;
+        if (index >= pages.length) {
+          nextBtn.textContent = 'Continua';
+        }
+        return;
+      }
+      nextBtn.classList.add('hidden');
+      nextBtn.onclick = null;
+      resolve();
+    };
+  });
 }
 
 async function start() {
+  showScreen('prelude1');
+  createMagicRise(10);
+  await wait(1600);
+
+  showScreen('prelude2');
+  createMagicRise(10);
+  await wait(1600);
+
+  showScreen('prelude3');
+  createMagicRise(10);
+  await wait(1800);
+
+  showScreen('prelude4');
+  createMagicRise(14);
+  await wait(2200);
+
   showScreen('intro');
   await wait(600);
 
@@ -1228,36 +1774,34 @@ async function start() {
   await wait(2600);
   byId('introText')?.classList.add('show');
   createSceneCascade(20);
+  createMagicRise(16);
 
   await wait(6200);
   showScreen('book');
   createSceneCascade(14);
+  createMagicRise(12);
   byId('coverSeal')?.classList.add('animate');
 
   await wait(1200);
   byId('cover')?.classList.add('open');
+  await wait(1800);
+  await waitForBookReading();
 
-  await wait(2400);
-  byId('p1')?.classList.add('flip');
-
-  await wait(3000);
-  byId('p2')?.classList.add('flip');
-
-  await wait(3000);
-  byId('p3')?.classList.add('flip');
-
-  await wait(3200);
+  await wait(1200);
   byId('cover')?.classList.remove('open');
   byId('cover')?.classList.add('close');
 
-  await wait(2200);
+  await wait(1800);
   showScreen('letter');
   createSceneCascade(12);
+  createMagicRise(14);
   buildSparkles('letterSparkles', 22);
 
   await wait(6200);
   showScreen('gallery');
+  startFinalMagic();
   createRoseCascade(30);
+  createMagicRise(18);
   buildSparkles('finalSparkles', 34);
   byId('roseBloom')?.classList.add('show');
 
@@ -1268,12 +1812,10 @@ async function start() {
   byId('heartStage')?.classList.add('beat');
   createFinalBurst();
   if (ENABLE_FINAL_CASCADE) createRoseCascade(52);
+  createMagicRise(20);
 
-  await wait(3600);
-  showScreen('message');
-  createRoseCascade(26);
-  buildSparkles('messageSparkles', 24);
-  byId('finalFade')?.classList.add('show');
+  await wait(3200);
+  showEnvelope();
 }
 
 async function runCountdown() {
