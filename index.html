@@ -398,8 +398,8 @@ button{
   to{transform:scale(1.08) rotate(6deg);opacity:1}
 }
 
-.bookScene{display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:40px 24px 24px;transition:opacity .45s ease, transform .45s ease}
-.bookContainer{width:min(860px,94vw);height:min(480px,66vh);position:relative;transition:transform .45s ease;transform:translateY(18px)}
+.bookScene{display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:96px 24px 24px;transition:opacity .45s ease, transform .45s ease}
+.bookContainer{width:min(860px,94vw);height:min(480px,66vh);position:relative;transition:transform .45s ease;transform:translateY(72px)}
 .bookShadow{position:absolute;left:50%;bottom:-14px;transform:translateX(-50%);width:74%;height:24px;background:radial-gradient(circle, rgba(0,0,0,.34), transparent 70%);filter:blur(8px)}
 .bookSpine{position:absolute;left:50%;top:5%;bottom:5%;width:18px;transform:translateX(-50%);background:linear-gradient(180deg,#a58146,#5e3f14,#a58146);border-radius:10px;box-shadow:inset 0 0 6px rgba(255,255,255,.08), 0 0 8px rgba(0,0,0,.18);z-index:2}
 .book{position:absolute;inset:0}
@@ -588,8 +588,8 @@ button{
 }
 
 @media (max-width: 560px){
-  .envelopeWrap{margin-top:2px;transform:translateY(-6px)}
-  .envelopeWrap.show{transform:translateY(-6px)}
+  .envelopeWrap{margin-top:-22px;transform:translateY(-18px)}
+  .envelopeWrap.show{transform:translateY(-18px)}
   .envelopeBtn{width:102px;height:68px}
   .envelopeText{font-size:.88rem;text-align:center;max-width:180px}
   .top-valance{height:76px}
@@ -612,8 +612,8 @@ button{
   .curtain{width:58%}
   .introText{top:54%}
   .introText p{font-size:1rem;line-height:1.35}
-  .bookScene{padding:16px 10px 168px;align-items:flex-start}
-  .bookContainer{width:96vw;height:min(300px,42vh);margin-top:-6px}
+  .bookScene{padding:72px 10px 168px;align-items:flex-start}
+  .bookContainer{width:96vw;height:min(300px,42vh);margin-top:32px}
   .bookCover,.bookRight,.bookPage{top:3%;height:94%;width:48.5%}
   .bookRight,.bookPage{padding:14px 10px}
   .bookControls{position:absolute;bottom:-126px;left:50%;transform:translateX(-50%);flex-direction:column;gap:10px;width:92vw;max-width:340px}
@@ -922,7 +922,7 @@ function stopMessageEmojiFlow(){
   byId('messageEmojiLayer')?.replaceChildren();
 }
 
-function startGalleryEmojiFlow(amount=6, interval=700){
+function startGalleryEmojiFlow(amount=4, interval=1000){
   stopGalleryEmojiFlow();
 
   createGalleryRise(amount);
@@ -948,9 +948,9 @@ function stopGalleryEmojiFlow(){
 function startFinalMagic(){
   stopFinalMagic();
   finalMagicInterval=setInterval(()=>{
-    createMagicRise(4);
-    if(Math.random()>.7) createRoseCascade(2);
-  },850);
+    createMagicRise(window.innerWidth<=560 ? 2 : 3);
+    if(Math.random()>.75) createRoseCascade(window.innerWidth<=560 ? 1 : 2);
+  },1200);
 }
 
 function stopFinalMagic(){
@@ -1028,9 +1028,9 @@ function heart(){
     wrap?.classList.add('finaleLive');
     playHeartChime();
     startFinalMagic();
-    createMagicRise(18);
-    createRoseCascade(18);
-    createGalleryRise(34);
+    createMagicRise(window.innerWidth<=560 ? 5 : 10);
+    createRoseCascade(window.innerWidth<=560 ? 8 : 16);
+    createGalleryRise(window.innerWidth<=560 ? 5 : 12);
     buildSparkles('finalSparkles',48);
   },2320);
 
@@ -1039,9 +1039,9 @@ function heart(){
     if(stage.__heartPulseLoop) clearInterval(stage.__heartPulseLoop);
     stage.__heartPulseLoop = setInterval(()=>{
       if(!byId('gallery')?.classList.contains('active')) return;
-      createGalleryRise(6);
-      createRoseCascade(2);
-    },1200);
+      createGalleryRise(window.innerWidth<=560 ? 2 : 5);
+      if(window.innerWidth>560 || Math.random()>.55) createRoseCascade(window.innerWidth<=560 ? 1 : 2);
+    },1500);
   },2400);
 }
 
@@ -1211,10 +1211,10 @@ async function start(){
   await flashTransition(700);
   showScreen('gallery');
   startFinalMagic();
-  startGalleryEmojiFlow(10, 520);
-  createRoseCascade(34);
-  createMagicRise(22);
-  buildSparkles('finalSparkles',44);
+  startGalleryEmojiFlow(window.innerWidth<=560 ? 3 : 5, window.innerWidth<=560 ? 1300 : 900);
+  createRoseCascade(window.innerWidth<=560 ? 6 : 14);
+  createMagicRise(window.innerWidth<=560 ? 5 : 10);
+  buildSparkles('finalSparkles', window.innerWidth<=560 ? 18 : 32);
   byId('roseBloom')?.classList.add('show');
 
   await wait(2050);
@@ -1222,8 +1222,8 @@ async function start(){
 
   await wait(6900);
   createFinalBurst();
-  if(ENABLE_FINAL_CASCADE) createRoseCascade(52);
-  createMagicRise(20);
+  if(ENABLE_FINAL_CASCADE) createRoseCascade(window.innerWidth<=560 ? 12 : 30);
+  createMagicRise(window.innerWidth<=560 ? 5 : 12);
 
   await wait(3600);
   showEnvelope();
