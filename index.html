@@ -487,10 +487,10 @@ button{
 .roseBloom .roseGlow{position:absolute;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(255,120,160,.25),transparent 70%);animation:rosePulse 3s ease-in-out infinite}
 @keyframes rosePulse{0%,100%{transform:scale(.95);opacity:.6}50%{transform:scale(1.08);opacity:.9}}
 
-.galleryWrap{position:relative;text-align:center;width:min(980px,94vw);transition:transform 2.6s ease, filter 2.2s ease;padding-top:20px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.galleryWrap{position:relative;text-align:center;width:min(980px,94vw);transition:transform 2.6s ease, filter 2.2s ease;padding-top:40px}
 .galleryWrap.finaleLive{transform:scale(1.025);filter:saturate(1.04)}
 .galleryWrap.heartReveal{transform:scale(.985);filter:brightness(.86) saturate(.95)}
-.heart-stage{position:relative;width:520px;height:500px;margin:0 auto;transition:transform .7s ease, filter .7s ease;transform:none;margin-top:-20px}
+.heart-stage{position:relative;width:520px;height:500px;margin:auto;transition:transform .7s ease, filter .7s ease;transform:translateY(-40px)}
 .heartGlow{position:absolute;left:50%;top:50%;width:320px;height:300px;transform:translate(-50%,-50%) scale(.82);border-radius:50%;background:radial-gradient(circle, rgba(255,214,150,.30) 0%, rgba(255,120,160,.18) 32%, rgba(255,210,120,.08) 48%, transparent 72%);filter:blur(18px);opacity:0;transition:opacity .8s ease, transform .8s ease;pointer-events:none}
 .heartGlow.show{opacity:1;transform:translate(-50%,-50%) scale(1);animation:heartGlowPulse 2.8s ease-in-out infinite}
 .photo{position:absolute;width:66px;height:66px;border-radius:14px;border:3px solid white;object-fit:cover;left:50%;top:50%;transform:translate(-50%,-50%) scale(.42) rotate(var(--r,0deg));opacity:0;box-shadow:0 10px 18px rgba(0,0,0,.22);transition:left 1.9s cubic-bezier(.2,.8,.2,1), top 1.9s cubic-bezier(.2,.8,.2,1), transform 1.9s cubic-bezier(.2,.8,.2,1), opacity .7s ease}
@@ -500,8 +500,8 @@ button{
 .heart-stage.arriving .photo{filter:saturate(.96) brightness(.98)}
 @keyframes heartBeat{0%,100%{transform:scale(1)}22%{transform:scale(1.05)}40%{transform:scale(1)}62%{transform:scale(1.08)}82%{transform:scale(1.02)}}
 @keyframes heartGlowPulse{0%,100%{opacity:.92;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}}
-.finalTitle{font-family:'Cinzel',serif;font-size:clamp(1.8rem,3vw,2.4rem);margin:0 0 10px;color:var(--gold-soft);text-shadow:0 0 18px rgba(255,220,160,.15), 0 0 34px rgba(255,210,120,.10);animation:titleFloat 3.6s ease-in-out infinite;position:relative;z-index:8}
-.finalSub{max-width:700px;margin:8px auto 16px;font-size:clamp(1rem,1.8vw,1.18rem);transform:none;position:relative;z-index:8;padding:0 14px;line-height:1.4}
+.finalTitle{font-family:'Cinzel',serif;font-size:clamp(1.8rem,3vw,2.4rem);margin-top:-40px;color:var(--gold-soft);text-shadow:0 0 18px rgba(255,220,160,.15), 0 0 34px rgba(255,210,120,.10);animation:titleFloat 3.6s ease-in-out infinite}
+.finalSub{max-width:700px;margin:2px auto 0;font-size:clamp(1rem,1.8vw,1.18rem);transform:translateY(-12px)}
 .finalFade{position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at center, rgba(255,228,170,.08), rgba(20,8,18,.82) 70%);opacity:0;transition:opacity 1.8s ease;z-index:30}
 .transitionVeil{position:fixed;inset:0;pointer-events:none;opacity:0;background:rgba(0,0,0,0.85);transition:opacity .45s ease;z-index:999}
 .transitionVeil.show{opacity:1}
@@ -540,7 +540,7 @@ button{
   100%{transform:translate3d(var(--drift-c, 12px),-110vh,0) scale(1.15) rotate(180deg);opacity:0}
 }
 
-.envelopeWrap{margin-top:6px;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;pointer-events:none;transform:translateY(14px);transition:opacity .5s ease, transform .5s ease;position:relative;z-index:8}
+.envelopeWrap{margin-top:10px;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;pointer-events:none;transform:translateY(14px);transition:opacity .5s ease, transform .5s ease;position:relative;z-index:8}
 .envelopeWrap.show{opacity:1;pointer-events:auto;transform:translateY(-8px)}
 .envelopeBtn{position:relative;width:110px;height:74px;border:none;background:linear-gradient(180deg,#f7ecd8,#e8d4b2);border-radius:8px;box-shadow:0 14px 26px rgba(0,0,0,.24), inset 0 0 0 1px rgba(122,89,48,.18);cursor:pointer}
 .envelopeBtn::before{content:"";position:absolute;left:0;right:0;top:0;margin:auto;width:0;height:0;border-left:55px solid transparent;border-right:55px solid transparent;border-top:38px solid rgba(255,255,255,.55)}
@@ -579,15 +579,19 @@ button{
   .letter{max-width:min(92vw,560px);padding:26px 20px;border-radius:10px}
   .letterTitle{font-size:clamp(1.25rem,5vw,1.8rem)}
   .letterCopy{font-size:clamp(.95rem,3.4vw,1.08rem);line-height:1.55}
-  .galleryWrap{width:min(96vw,720px);gap:8px;padding-top:10px}
+  .galleryWrap{width:min(96vw,720px)}
   .heart-stage{width:min(88vw,360px);height:min(48vh,340px)}
   .photo{width:52px;height:52px;border-radius:10px;border-width:2px}
   .finalTitle{font-size:clamp(1.2rem,5vw,1.8rem)}
-  .finalSub{font-size:clamp(.92rem,3.2vw,1rem)}
+  .finalSub{font-size:clamp(.92rem,3.2vw,1rem);padding:0 10px}
   .countdown{font-size:clamp(3rem,18vw,5.2rem)}
 }
 
 @media (max-width: 560px){
+  .envelopeWrap{margin-top:-40px;transform:translateY(-26px)}
+  .envelopeWrap.show{transform:translateY(-18px)}
+  .envelopeBtn{width:102px;height:68px}
+  .envelopeText{font-size:.88rem;text-align:center;max-width:180px}
   .top-valance{height:76px}
   .chandelier{width:160px;height:118px;top:24px}
   .chandelier::before{height:34px}
@@ -608,26 +612,21 @@ button{
   .curtain{width:58%}
   .introText{top:54%}
   .introText p{font-size:1rem;line-height:1.35}
-
   .bookScene{padding:72px 10px 168px;align-items:flex-start}
   .bookContainer{width:96vw;height:min(300px,42vh);margin-top:32px}
   .bookCover,.bookRight,.bookPage{top:3%;height:94%;width:48.5%}
   .bookRight,.bookPage{padding:14px 10px}
   .bookControls{position:absolute;bottom:-126px;left:50%;transform:translateX(-50%);flex-direction:column;gap:10px;width:92vw;max-width:340px}
   .bookHint,.bookNextBtn{width:100%;text-align:center}
-
-  .galleryWrap{width:96vw;gap:12px;padding-top:6px}
-  .finalTitle{font-size:clamp(1rem,5.6vw,1.35rem);margin:0 0 2px;line-height:1.2}
-  .finalSub{font-size:clamp(.82rem,3.5vw,.92rem);margin:0 auto 4px;line-height:1.3;max-width:88vw}
-  .heart-stage{width:96vw;height:280px;margin-top:0;transform:none}
-  .photo{width:42px;height:42px;border-radius:8px}
-
-  .envelopeWrap{margin-top:0;transform:none}
-  .envelopeWrap.show{transform:none}
-  .envelopeBtn{width:102px;height:68px}
-  .envelopeText{font-size:.88rem;text-align:center;max-width:180px}
+  .heart-stage{width:96vw;height:440px;transform:translateY(-110px)}
+  .photo{width:44px;height:44px;border-radius:8px}
+  .finalTitle{font-size:clamp(1rem,5.6vw,1.35rem);margin-top:-70px}
+  .finalSub{font-size:clamp(.82rem,3.5vw,.92rem);transform:translateY(-28px)}
 }
-
+  .photo{width:44px;height:44px;border-radius:8px}
+  .finalTitle{font-size:clamp(1rem,5.6vw,1.35rem)}
+  .finalSub{font-size:clamp(.82rem,3.5vw,.92rem)}
+}
 </style>
 </head>
 <body>
@@ -643,7 +642,8 @@ button{
 <section id="book" class="screen"><div class="bookScene"><div class="bookContainer"><div class="bookShadow"></div><div class="bookSpine"></div><div class="book" id="bookAnim"><div class="bookCover" id="cover"><div class="coverTitle">Emanuela</div><div class="coverCrest">✦</div><div class="coverSeal" id="coverSeal">A</div></div><div class="bookPage page1" id="p1" aria-label="Pagina 1"><div class="pageFrame"></div><div class="pageCurl"></div><div class="bookTitle">Capitolo I</div><div class="bookCopy">Ogni storia speciale merita di essere raccontata.</div><div class="pagePhotoFrame" style="--tilt:-2deg"><img src="https://picsum.photos/500/300?random=1" alt="ricordo 1"></div><div class="pageNote">Un ricordo speciale</div></div><div class="bookPage page2" id="p2" aria-label="Pagina 2"><div class="pageFrame"></div><div class="pageCurl"></div><div class="bookTitle">Capitolo II</div><div class="bookCopy">Ci sono persone che entrano nella nostra vita e cambiano il mondo.</div><div class="pagePhotoFrame" style="--tilt:1.5deg"><img src="https://picsum.photos/500/300?random=2" alt="ricordo 2"></div><div class="pageNote">Un momento da custodire</div></div><div class="bookPage page3" id="p3" aria-label="Pagina 3"><div class="pageFrame"></div><div class="pageCurl"></div><div class="bookTitle">Capitolo III</div><div class="bookCopy">E alcune persone meritano un giorno davvero speciale.</div><div class="pagePhotoFrame" style="--tilt:-1deg"><img src="https://picsum.photos/500/300?random=3" alt="ricordo 3"></div><div class="pageNote">Un frammento da ricordare</div></div><div class="bookRight"><div class="pageFrame"></div><div class="bookTitle">22 Marzo</div><div class="bookCopy">Buon compleanno Emanuela.</div><div class="pagePhotoFrame" style="--tilt:1deg"><img src="https://picsum.photos/500/300?random=4" alt="pagina finale"></div><div class="pageNote">Per ricordare questo giorno</div><div class="bookSign">Con affetto sincero ✦</div></div></div><div class="bookControls"><div class="bookHint">Sfoglia tu il libro ✨</div><button class="bookNextBtn" id="bookNextBtn">Pagina successiva</button></div></div></div></section>
 <section id="message" class="screen"><div class="letterScene" style="flex-direction:column;"><div class="letterGlow"></div><div class="sparkleLayer" id="messageSparkles"></div><div class="messageEmojiLayer" id="messageEmojiLayer"></div><div class="letter"><div class="letterDate">Un piccolo finale extra</div><div class="letterTitle">Questo è solo l'inizio</div><div class="letterCopy">Che il resto di questa giornata possa sorprenderti, farti sorridere e ricordarti quanto può essere bella la magia dei piccoli gesti.</div><div class="letterSign">Per rendere speciale il tuo 22 marzo ✦</div></div><div class="restartWrap" id="restartWrap"><button class="restartBtn" id="restartBtn">Rivedi da capo ✨</button></div></div></section>
 <section id="letter" class="screen"><div class="letterScene"><div class="letterGlow"></div><div class="sparkleLayer" id="letterSparkles"></div><div class="letter"><div class="letterDate">22 Marzo</div><div class="letterTitle">Una lettera per te</div><div class="letterCopy">In questo giorno speciale il sipario si apre per celebrare una presenza rara.<br><br>Una persona capace di portare luce, bellezza e magia anche nei dettagli più piccoli.</div><div class="letterSign">Con affetto sincero ✦</div></div></div></section>
-<section id="gallery" class="screen"><div class="galleryWrap"><div class="sparkleLayer" id="finalSparkles"></div><div class="galleryEmojiLayer" id="galleryEmojiLayer"></div><div class="roseBloom" id="roseBloom"><div class="roseGlow"></div><svg viewBox="0 0 100 100" aria-hidden="true"><defs><radialGradient id="g" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#ff7aa5"/><stop offset="60%" stop-color="#c2185b"/><stop offset="100%" stop-color="#6a0830"/></radialGradient></defs><path fill="url(#g)" d="M50 18c8-10 26-4 26 8 0 8-6 12-11 15 9 1 17 7 17 16 0 12-12 20-32 20s-32-8-32-20c0-9 8-15 17-16-5-3-11-7-11-15 0-12 18-18 26-8z"/></svg></div><div class="finalTitle">Buon compleanno Emanuela ❤️</div><div class="finalSub">Una piccola esperienza pensata per rendere questo giorno ancora più speciale.</div><div class="heart-stage" id="heartStage"><div class="heartGlow" id="heartGlow"></div></div><div class="envelopeWrap" id="envelopeWrap"><button class="envelopeBtn" id="envelopeBtn" aria-label="Apri l'ultima lettera"></button><div class="envelopeText">Apri l'ultima lettera</div></div></div></section>
+<section id="gallery" class="screen"><div class="galleryWrap"><div class="sparkleLayer" id="finalSparkles"></div><div class="galleryEmojiLayer" id="galleryEmojiLayer"></div><div class="roseBloom" id="roseBloom"><div class="roseGlow"></div><svg viewBox="0 0 100 100" aria-hidden="true"><defs><radialGradient id="g" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#ff7aa5"/><stop offset="60%" stop-color="#c2185b"/><stop offset="100%" stop-color="#6a0830"/></radialGradient></defs><path fill="url(#g)" d="M50 18c8-10 26-4 26 8 0 8-6 12-11 15 9 1 17 7 17 16 0 12-12 20-32 20s-32-8-32-20c0-9 8-15 17-16-5-3-11-7-11-15 0-12 18-18 26-8z"/></svg></div><div class="heart-stage" id="heartStage"><div class="heartGlow" id="heartGlow"></div></div><div class="finalTitle">Buon compleanno Emanuela ❤️</div><div class="finalSub">Una piccola esperienza pensata per rendere questo giorno ancora più speciale.</div><div class="envelopeWrap" id="envelopeWrap"><button class="envelopeBtn" id="envelopeBtn" aria-label="Apri l'ultima lettera"></button><div class="envelopeText">Apri l'ultima lettera</div></div></div>
+  </section>
 
 <script>
 const screens = ["prelude1", "prelude2", "prelude3", "prelude4", "intro", "book", "letter", "gallery", "message"];
@@ -983,68 +983,70 @@ function heart(){
   const glow=byId('heartGlow');
   const wrap=stage?.closest('.galleryWrap');
   if(!stage) return;
-
   stage.classList.add('arriving');
-  stage.classList.remove('heartTight','beat');
+  stage.classList.remove('heartTight');
   wrap?.classList.add('heartReveal');
-  wrap?.classList.remove('finaleLive');
-  glow?.classList.remove('show');
+
   stage.querySelectorAll('.photo').forEach(el=>el.remove());
+  stage.classList.remove('beat');
+  glow?.classList.remove('show');
+  wrap?.classList.remove('finaleLive');
 
   const isMobile=window.innerWidth<=560;
-  const total=isMobile?10:16;
+  const total=isMobile?12:16;
   const points=[];
-  const xScale=isMobile?1.45:1.76;
-  const yScale=isMobile?1.22:1.56;
+  const outerRadius=isMobile?44:48;
 
   for(let i=0;i<total;i++){
     const t=Math.PI-(i/(total-1))*Math.PI*2;
     const x=16*Math.pow(Math.sin(t),3);
     const y=13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t);
-    points.push([50+x*xScale, 52-y*yScale]);
+    const px=50+x*(isMobile?1.84:1.76);
+    const py=46-y*(isMobile?1.62:1.56);
+    points.push([px,py]);
   }
 
-  const startX = 50;
-  const startY = isMobile ? 56 : 50;
-
   points.forEach((pt,i)=>{
+    const angle=(Math.PI*2/total)*i-Math.PI/2;
     const img=document.createElement('img');
     img.src=`https://picsum.photos/300?heart=${i}`;
     img.className='photo';
-    img.style.left=startX+'%';
-    img.style.top=startY+'%';
-    img.style.setProperty('--r', `${(Math.random()-.5)*0.8}deg`);
+    img.style.left=(50+Math.cos(angle)*outerRadius)+'%';
+    img.style.top=(50+Math.sin(angle)*outerRadius*0.78)+'%';
+    img.style.setProperty('--r', `${(Math.random()-.5)*0.9}deg`);
     stage.appendChild(img);
 
     setTimeout(()=>{
       img.classList.add('show');
       img.style.left=pt[0]+'%';
       img.style.top=pt[1]+'%';
-    }, isMobile ? 140*i : 115*i);
+    },115*i);
   });
 
   setTimeout(()=>{
     glow?.classList.add('show');
-    stage.classList.add('beat','heartTight');
+    stage.classList.add('beat');
+    stage.classList.add('heartTight');
     stage.classList.remove('arriving');
     wrap?.classList.remove('heartReveal');
     wrap?.classList.add('finaleLive');
     playHeartChime();
     startFinalMagic();
-    createMagicRise(window.innerWidth<=560 ? 4 : 10);
-    createRoseCascade(window.innerWidth<=560 ? 4 : 12);
-    createGalleryRise(window.innerWidth<=560 ? 3 : 10);
-    buildSparkles('finalSparkles', window.innerWidth<=560 ? 16 : 48);
-  }, isMobile ? 2500 : 2320);
+    createMagicRise(window.innerWidth<=560 ? 5 : 10);
+    createRoseCascade(window.innerWidth<=560 ? 8 : 16);
+    createGalleryRise(window.innerWidth<=560 ? 5 : 12);
+    buildSparkles('finalSparkles',48);
+  },2320);
 
+  // Impulso continuo: ad ogni battito il cuore richiama più magia nella gallery
   setTimeout(()=>{
     if(stage.__heartPulseLoop) clearInterval(stage.__heartPulseLoop);
     stage.__heartPulseLoop = setInterval(()=>{
       if(!byId('gallery')?.classList.contains('active')) return;
-      createGalleryRise(window.innerWidth<=560 ? 1 : 4);
-      if(window.innerWidth>560 || Math.random()>.72) createRoseCascade(window.innerWidth<=560 ? 1 : 2);
-    }, window.innerWidth<=560 ? 1800 : 1500);
-  }, isMobile ? 2600 : 2400);
+      createGalleryRise(window.innerWidth<=560 ? 2 : 5);
+      if(window.innerWidth>560 || Math.random()>.55) createRoseCascade(window.innerWidth<=560 ? 1 : 2);
+    },1500);
+  },2400);
 }
 
 function showEnvelope(){
