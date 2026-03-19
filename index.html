@@ -437,9 +437,10 @@ button{
 .bookPage.mobileSettling{transition:opacity .18s ease}
 .pageFrame{position:absolute;inset:12px;border:1px solid rgba(93,66,27,.10);pointer-events:none;border-radius:10px}
 .bookPage .pageCurl{position:absolute;right:0;top:8%;bottom:8%;width:18px;background:linear-gradient(90deg,rgba(255,255,255,.14),rgba(255,255,255,.02) 35%,rgba(0,0,0,.10) 100%);opacity:.14;pointer-events:none;border-radius:0 10px 10px 0}
-.bookPage.page1{z-index:7}
-.bookPage.page2{z-index:6}
-.bookPage.page3{z-index:5}
+.bookPage.page1{z-index:8}
+.bookPage.page2{z-index:7}
+.bookPage.page3{z-index:6}
+.bookPage.page4{z-index:5}
 .bookPage.turned{left:2.5%;transform-origin:right center;pointer-events:none;box-shadow:0 8px 14px rgba(0,0,0,.10), inset 0 0 0 1px rgba(0,0,0,.04)}
 .bookPage.turned .pageCurl{display:none}
 .bookPage.page1.turned{transform:translateX(12px);z-index:2}
@@ -460,13 +461,19 @@ button{
   pointer-events:none;
 }
 .bookPageClone .pageCurl{display:none}
-.bookPageClone.clone1{transform:translateX(12px);z-index:2}
-.bookPageClone.clone2{transform:translateX(6px);z-index:3}
-.bookPageClone.clone3{transform:translateX(0);z-index:4}
+.bookPageClone.clone1{transform:translateX(18px);z-index:2}
+.bookPageClone.clone2{transform:translateX(12px);z-index:3}
+.bookPageClone.clone3{transform:translateX(6px);z-index:4}
+.bookPageClone.clone4{transform:translateX(0);z-index:5}
 .bookTitle{font-family:'Cinzel',serif;font-size:clamp(1.3rem,2.3vw,1.8rem);margin-bottom:10px}
 .bookCopy{font-size:clamp(.92rem,1.7vw,1.04rem);line-height:1.5}
 .pagePhotoFrame{margin-top:12px;padding:8px;background:#fff8ee;border-radius:12px;box-shadow:0 8px 14px rgba(0,0,0,.12);transform:rotate(var(--tilt,-1deg))}
 .pagePhotoFrame img{display:block;width:100%;height:148px;object-fit:cover;border-radius:8px}
+.pagePhotoGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.pagePhotoGrid .pagePhotoFrame{margin-top:0;padding:6px}
+.pagePhotoGrid .pagePhotoFrame.wide{grid-column:1 / -1}
+.pagePhotoGrid .pagePhotoFrame img{height:74px}
+.pagePhotoGrid .pagePhotoFrame.wide img{height:92px}
 .pageNote{margin-top:8px;font-size:.86rem;font-style:italic;color:#7a5930;text-align:center}
 .bookSign{margin-top:12px;font-style:italic;color:#6c4b1d}
 .bookCover.open{animation:coverOpen 1.6s ease forwards}
@@ -662,7 +669,10 @@ button{
   .introText{width:min(86vw,560px);padding:0 10px}
   .introText p{font-size:1.1rem}
   .bookContainer{width:min(96vw,720px);height:min(420px,58vh)}
-  .bookRight,.bookPage{padding:20px 16px}
+  .bookRight,.bookPage{padding:18px 14px}
+  .pagePhotoGrid{gap:8px}
+  .pagePhotoGrid .pagePhotoFrame img{height:66px}
+  .pagePhotoGrid .pagePhotoFrame.wide img{height:82px}
   .coverSeal{width:54px;height:54px;right:12px;bottom:12px;font-size:.85rem}
   .letterScene{width:100%;height:100%;padding:16px}
   .letter{max-width:min(92vw,560px);padding:26px 20px;border-radius:10px}
@@ -706,7 +716,12 @@ button{
   .bookScene{padding:72px 10px 168px;align-items:flex-start}
   .bookContainer{width:96vw;height:min(300px,42vh);margin-top:32px}
   .bookCover,.bookRight,.bookPage{top:3%;height:94%;width:48.5%}
-  .bookRight,.bookPage{padding:14px 10px}
+  .bookRight,.bookPage{padding:12px 8px}
+  .pagePhotoGrid{gap:6px;margin-top:8px}
+  .pagePhotoGrid .pagePhotoFrame{padding:4px}
+  .pagePhotoGrid .pagePhotoFrame img{height:48px}
+  .pagePhotoGrid .pagePhotoFrame.wide img{height:58px}
+  .pageNote{margin-top:6px;font-size:.74rem}
   .bookControls{position:absolute;bottom:-126px;left:50%;transform:translateX(-50%);flex-direction:column;gap:10px;width:92vw;max-width:340px}
   .bookHint,.bookNextBtn{width:100%;text-align:center}
   .heart-stage{width:96vw;height:440px}
@@ -733,7 +748,7 @@ button{
 <p>Una persona che, senza accorgersene, lascia qualcosa di bello ovunque passi.</p>
 <p>E proprio oggi… tutto questo merita di essere celebrato.</p>
 </div></div></section>
-  <section id="book" class="screen"><div class="bookScene"><div class="bookContainer"><div class="bookShadow"></div><div class="bookSpine"></div><div class="bookDustLayer" id="bookDustLayer"></div><div class="book" id="bookAnim"><div class="bookLeftStack"></div><div class="bookCover" id="cover"><div class="coverTitle">Emanuela</div><div class="coverCrest">✦</div><div class="coverSeal" id="coverSeal">A</div></div><div class="bookPage page1" id="p1" aria-label="Pagina 1"><div class="pageFrame"></div><div class="pageCurl"></div><div class="bookTitle">Capitolo I — Come è iniziato tutto</div><div class="bookCopy">Tutto è iniziato quasi per caso…senza aspettative, senza programmi. Due strade che si sono incrociate, due mondi che hanno iniziato a parlarsi.</div><div class="pagePhotoFrame" style="--tilt:-2deg"><img src="https://i.ytimg.com/vi/33wi9GMVlr4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDoqZyTTtzSPMLdlYjhmotrgpPndQ" alt="ricordo 1"></div><div class="pageNote">All’inizio erano solo parole, poi quelle parole hanno iniziato a restare.</div></div><div class="bookPage page2" id="p2" aria-label="Pagina 2"><div class="pageFrame"></div><div class="pageCurl"></div><div class="bookTitle">Capitolo II — Crescere senza accorgersene</div><div class="bookCopy">Giorno dopo giorno, senza accorgersene qualcosa è cambiato ed è diventato sempre più forte. </div><div class="pagePhotoFrame" style="--tilt:1deg"><img src="https://cdn.shopify.com/s/files/1/0950/1019/3734/files/WhatsApp_Image_2026-03-19_at_23.39.29.jpg?v=1773960237" alt="ricordo 2"></div><div class="pageNote"></div><div class="pagePhotoFrame" style="--tilt:1.5deg"><img src="https://cdn.shopify.com/s/files/1/0950/1019/3734/files/WhatsApp_Image_2026-03-19_at_23.39.30_1.jpg?v=1773960242" alt="ricordo 2"></div><div class="pageNote">La nostra prima famiglia su The Sims e le prime foto.</div></div><div class="bookPage page3" id="p3" aria-label="Pagina 3"><div class="pageFrame"></div><div class="pageCurl"></div><div class="bookTitle">Capitolo III</div><div class="bookCopy">E alcune persone meritano un giorno davvero speciale.</div><div class="pagePhotoFrame" style="--tilt:-1deg"><img src="https://picsum.photos/500/300?random=3" alt="ricordo 3"></div><div class="pageNote">Un frammento da ricordare</div></div><div class="bookRight"><div class="pageFrame"></div><div class="bookTitle">22 Marzo</div><div class="bookCopy">Buon compleanno Emanuela.</div><div class="pagePhotoFrame" style="--tilt:1deg"><img src="https://picsum.photos/500/300?random=4" alt="pagina finale"></div><div class="pageNote">Per ricordare questo giorno</div><div class="bookSign">Con affetto sincero ✦</div></div></div><div class="bookControls"><div class="bookHint">Sfoglia tu il libro ✨</div><button class="bookNextBtn" id="bookNextBtn">Pagina successiva</button></div></div></div></section>
+<section id="book" class="screen"><div class="bookScene"><div class="bookContainer"><div class="bookShadow"></div><div class="bookSpine"></div><div class="bookDustLayer" id="bookDustLayer"></div><div class="book" id="bookAnim"><div class="bookLeftStack"></div><div class="bookCover" id="cover"><div class="coverTitle">Emanuela 💫</div><div class="coverCrest">✦</div><div class="coverSeal" id="coverSeal">A</div></div><div class="bookPage page1" id="p1" aria-label="Pagina 1"><div class="pageFrame"></div><div class="pageCurl"></div><div class="bookTitle">Capitolo I — Come è iniziato tutto</div><div class="bookCopy">Tutto è iniziato quasi per caso…senza aspettative, senza programmi. Due strade che si sono incrociate, due mondi che hanno iniziato a parlarsi.</div><div class="pagePhotoGrid"><div class="pagePhotoFrame"><img src="https://i.ytimg.com/vi/33wi9GMVlr4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDoqZyTTtzSPMLdlYjhmotrgpPndQ" alt="ricordo 1"></div><div class="pagePhotoFrame"><img src="https://www.vice.com/wp-content/uploads/sites/2/2024/12/Four-players-chatting-in-Lockdown-Protocol.jpg?w=1024" alt="ricordo 2"></div><div class="pagePhotoFrame wide"><img src="https://picsum.photos/500/300?random=3" alt="ricordo 3"></div></div><div class="pageNote">All’inizio erano solo parole, poi quelle parole hanno iniziato a restare.</div></div><div class="bookPage page2" id="p2" aria-label="Pagina 2"><div class="pageFrame"></div><div class="pageCurl"></div><div class="bookTitle">Capitolo II</div><div class="bookCopy">Parole, sorrisi e piccoli momenti hanno iniziato a restare.</div><div class="pagePhotoGrid"><div class="pagePhotoFrame"><img src="https://picsum.photos/500/300?random=4" alt="ricordo 4"></div><div class="pagePhotoFrame"><img src="https://picsum.photos/500/300?random=5" alt="ricordo 5"></div><div class="pagePhotoFrame wide"><img src="https://picsum.photos/500/300?random=6" alt="ricordo 6"></div></div><div class="pageNote">Momenti da custodire</div></div><div class="bookPage page3" id="p3" aria-label="Pagina 3"><div class="pageFrame"></div><div class="pageCurl"></div><div class="bookTitle">Capitolo III</div><div class="bookCopy">Senza accorgercene, qualcosa di bello ha preso forma.</div><div class="pagePhotoGrid"><div class="pagePhotoFrame"><img src="https://picsum.photos/500/300?random=7" alt="ricordo 7"></div><div class="pagePhotoFrame"><img src="https://picsum.photos/500/300?random=8" alt="ricordo 8"></div><div class="pagePhotoFrame wide"><img src="https://picsum.photos/500/300?random=9" alt="ricordo 9"></div></div><div class="pageNote">Tre immagini, una sola storia</div></div><div class="bookPage page4" id="p4" aria-label="Pagina 4"><div class="pageFrame"></div><div class="pageCurl"></div><div class="bookTitle">Capitolo IV</div><div class="bookCopy">E poi arriva un giorno che merita di essere ricordato per davvero.</div><div class="pagePhotoGrid"><div class="pagePhotoFrame"><img src="https://picsum.photos/500/300?random=10" alt="ricordo 10"></div><div class="pagePhotoFrame"><img src="https://picsum.photos/500/300?random=11" alt="ricordo 11"></div><div class="pagePhotoFrame wide"><img src="https://picsum.photos/500/300?random=12" alt="ricordo 12"></div></div><div class="pageNote">Verso il tuo giorno speciale</div></div><div class="bookRight"><div class="pageFrame"></div><div class="bookTitle">22 Marzo</div><div class="bookCopy">Buon compleanno Emanuela.</div><div class="pagePhotoGrid"><div class="pagePhotoFrame"><img src="https://picsum.photos/500/300?random=13" alt="pagina finale 1"></div><div class="pagePhotoFrame"><img src="https://picsum.photos/500/300?random=14" alt="pagina finale 2"></div><div class="pagePhotoFrame wide"><img src="https://picsum.photos/500/300?random=15" alt="pagina finale 3"></div></div><div class="pageNote">Per ricordare questo giorno</div><div class="bookSign">Con affetto sincero ✦</div></div></div><div class="bookControls"><div class="bookHint">Sfoglia tu il libro ✨</div><button class="bookNextBtn" id="bookNextBtn">Pagina successiva</button></div></div></div></section>
 <section id="message" class="screen"><div class="letterScene" style="flex-direction:column;"><div class="letterGlow"></div><div class="sparkleLayer" id="messageSparkles"></div><div class="messageEmojiLayer" id="messageEmojiLayer"></div><div class="letter"><div class="letterDate">Un piccolo finale extra</div><div class="letterTitle">Questo è solo l'inizio</div><div class="letterCopy">Che il resto di questa giornata possa sorprenderti, farti sorridere e ricordarti quanto può essere bella la magia dei piccoli gesti.</div><div class="letterSign">Per rendere speciale il tuo 22 marzo ✦</div></div><div class="restartWrap" id="restartWrap"><button class="restartBtn" id="restartBtn">Rivedi da capo ✨</button></div></div></section>
 <section id="letter" class="screen"><div class="letterScene"><div class="letterGlow"></div><div class="sparkleLayer" id="letterSparkles"></div><div class="letter"><div class="letterDate">22 Marzo</div><div class="letterTitle">Una lettera per te</div><div class="letterCopy">In questo giorno speciale il sipario si apre per celebrare una presenza rara.<br><br>Una persona capace di portare luce, bellezza e magia anche nei dettagli più piccoli.</div><div class="letterSign">Con affetto sincero ✦</div></div></div></section>
 <section id="gallery" class="screen"><div class="galleryWrap"><div class="sparkleLayer" id="finalSparkles"></div><div class="galleryEmojiLayer" id="galleryEmojiLayer"></div><div class="roseBloom" id="roseBloom"><div class="roseGlow"></div><svg viewBox="0 0 100 100" aria-hidden="true"><defs><radialGradient id="g" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#ff7aa5"/><stop offset="60%" stop-color="#c2185b"/><stop offset="100%" stop-color="#6a0830"/></radialGradient></defs><path fill="url(#g)" d="M50 18c8-10 26-4 26 8 0 8-6 12-11 15 9 1 17 7 17 16 0 12-12 20-32 20s-32-8-32-20c0-9 8-15 17-16-5-3-11-7-11-15 0-12 18-18 26-8z"/></svg></div><div class="finalTitle">Buon compleanno Emanuela ❤️</div><div class="finalSub">Una piccola esperienza pensata per rendere questo giorno ancora più speciale.</div><div class="heart-stage" id="heartStage"><div class="heartGlow" id="heartGlow"></div></div><div class="envelopeWrap" id="envelopeWrap"><div class="envelopeHalo"></div><button class="envelopeBtn" id="envelopeBtn" aria-label="Apri l'ultima lettera"></button><div class="envelopeText">Apri l'ultima lettera</div></div></div>
@@ -746,7 +761,7 @@ const ENABLE_MINI_ROSES = true;
 const ENABLE_FINAL_CASCADE = true;
 const ENABLE_RESTART = true;
 
-const music = new Audio('https://cdn.shopify.com/s/files/1/0950/1019/3734/files/Bridgerton_Opening_Credits_Main_Title_Theme_Audio_BRIDGERTON_-_SOUNDTRACK.mp3?v=1773945152');
+const music = new Audio('https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8e4d2d5c3.mp3?filename=romantic-background-112199.mp3');
 music.loop = true;
 music.volume = 0;
 
@@ -1187,7 +1202,7 @@ function resetExperience(){
   byId('introText')?.classList.remove('show');
   byId('stageLight')?.classList.remove('show');
   byId('cover')?.classList.remove('open','close');
-  [byId('p1'), byId('p2'), byId('p3')].forEach((page)=>{
+  [byId('p1'), byId('p2'), byId('p3'), byId('p4')].forEach((page)=>{
     page?.classList.remove('flip','turned','settling','mobileSettling');
     if(page){
       page.style.left='';
@@ -1265,9 +1280,9 @@ function createTurnedClone(page, index){
 function waitForBookReading(){
   return new Promise(resolve=>{
     const nextBtn = byId('bookNextBtn');
-    const pages = [byId('p1'), byId('p2'), byId('p3')].filter(Boolean);
+    const pages = [byId('p1'), byId('p2'), byId('p3'), byId('p4')].filter(Boolean);
     const finalRightPage = document.querySelector('.bookRight');
-    const stackTransforms = ['translateX(12px)','translateX(6px)','translateX(0)'];
+    const stackTransforms = ['translateX(18px)','translateX(12px)','translateX(6px)','translateX(0)'];
 
     if(!nextBtn || pages.length===0){
       resolve();
