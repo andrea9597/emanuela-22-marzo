@@ -922,7 +922,7 @@ function stopMessageEmojiFlow(){
   byId('messageEmojiLayer')?.replaceChildren();
 }
 
-function startGalleryEmojiFlow(amount=4, interval=1000){
+function startGalleryEmojiFlow(amount=6, interval=700){
   stopGalleryEmojiFlow();
 
   createGalleryRise(amount);
@@ -948,9 +948,9 @@ function stopGalleryEmojiFlow(){
 function startFinalMagic(){
   stopFinalMagic();
   finalMagicInterval=setInterval(()=>{
-    createMagicRise(window.innerWidth<=560 ? 2 : 3);
-    if(Math.random()>.75) createRoseCascade(window.innerWidth<=560 ? 1 : 2);
-  },1200);
+    createMagicRise(4);
+    if(Math.random()>.7) createRoseCascade(2);
+  },850);
 }
 
 function stopFinalMagic(){
@@ -1029,8 +1029,8 @@ function heart(){
     playHeartChime();
     startFinalMagic();
     createMagicRise(window.innerWidth<=560 ? 5 : 10);
-    createRoseCascade(window.innerWidth<=560 ? 8 : 16);
-    createGalleryRise(window.innerWidth<=560 ? 5 : 12);
+    createRoseCascade(window.innerWidth<=560 ? 6 : 14);
+    createGalleryRise(window.innerWidth<=560 ? 8 : 18);
     buildSparkles('finalSparkles',48);
   },2320);
 
@@ -1211,9 +1211,9 @@ async function start(){
   await flashTransition(700);
   showScreen('gallery');
   startFinalMagic();
-  startGalleryEmojiFlow(window.innerWidth<=560 ? 3 : 5, window.innerWidth<=560 ? 1300 : 900);
-  createRoseCascade(window.innerWidth<=560 ? 6 : 14);
-  createMagicRise(window.innerWidth<=560 ? 5 : 10);
+  startGalleryEmojiFlow(window.innerWidth<=560 ? 3 : 6, window.innerWidth<=560 ? 1100 : 760);
+  createRoseCascade(window.innerWidth<=560 ? 10 : 22);
+  createMagicRise(window.innerWidth<=560 ? 6 : 12);
   buildSparkles('finalSparkles', window.innerWidth<=560 ? 18 : 32);
   byId('roseBloom')?.classList.add('show');
 
