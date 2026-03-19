@@ -588,7 +588,23 @@ button{
 }
 
 @media (max-width: 560px){
-  .envelopeWrap{margin-top:10px;transform:translateY(8px)}
+  .envelopeWrap{margin-top:14px;transform:none}
+  .envelopeWrap.show{transform:none}
+  .envelopeBtn{width:102px;height:68px}
+  .envelopeText{font-size:.88rem;text-align:center;max-width:180px}
+
+  .galleryWrap{width:96vw;gap:8px;padding-top:6px}
+
+  /* Testi puliti e separati */
+  .finalTitle{font-size:clamp(1rem,5.6vw,1.35rem);margin-top:-10px;transform:none}
+  .finalSub{font-size:clamp(.82rem,3.5vw,.92rem);margin-top:2px;transform:none}
+
+  /* Cuore stabile (no bug) */
+  .heart-stage{width:96vw;height:300px;transform:none;margin-top:-6px}
+
+  .photo{width:44px;height:44px;border-radius:8px}
+}
+
   .envelopeWrap.show{transform:translateY(6px)}
   .envelopeBtn{width:102px;height:68px}
   .envelopeText{font-size:.88rem;text-align:center;max-width:180px}
