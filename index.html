@@ -434,6 +434,7 @@ button{
 .bookRight{right:2.5%;background:linear-gradient(180deg,#fcf7ee,#eee1ca);color:var(--ink);padding:26px 20px;border-radius:6px 16px 16px 6px;box-shadow:0 12px 18px rgba(0,0,0,.12), inset 0 0 0 1px rgba(0,0,0,.05);z-index:1}
 .bookPage{left:50%;transform-origin:left center;background:linear-gradient(180deg,#fffaf1,#efe2cb);color:var(--ink);padding:26px 20px;border-radius:6px 16px 16px 6px;box-shadow:0 12px 18px rgba(0,0,0,.12), inset 0 0 0 1px rgba(0,0,0,.05)}
 .bookPage.settling{transition:left .55s cubic-bezier(.2,.8,.2,1), transform .55s cubic-bezier(.2,.8,.2,1), box-shadow .55s ease}
+.bookPage.mobileSettling{transition:opacity .18s ease}
 .pageFrame{position:absolute;inset:12px;border:1px solid rgba(93,66,27,.10);pointer-events:none;border-radius:10px}
 .bookPage .pageCurl{position:absolute;right:0;top:8%;bottom:8%;width:18px;background:linear-gradient(90deg,rgba(255,255,255,.14),rgba(255,255,255,.02) 35%,rgba(0,0,0,.10) 100%);opacity:.14;pointer-events:none;border-radius:0 10px 10px 0}
 .bookPage.page1{z-index:7}
@@ -1162,7 +1163,7 @@ function resetExperience(){
   byId('stageLight')?.classList.remove('show');
   byId('cover')?.classList.remove('open','close');
   [byId('p1'), byId('p2'), byId('p3')].forEach((page)=>{
-    page?.classList.remove('flip','turned','settling');
+    page?.classList.remove('flip','turned','settling','mobileSettling');
     if(page){
       page.style.left='';
       page.style.transform='';
@@ -1247,11 +1248,24 @@ function waitForBookReading(){
 
         const currentIndex = index;
         page.addEventListener('animationend', ()=>{
+          const isMobile = window.innerWidth <= 560;
           page.classList.remove('flip');
-          page.classList.add('settling','turned');
-          page.style.left = '2.5%';
-          page.style.transform = stackTransforms[currentIndex];
-          setTimeout(()=>page.classList.remove('settling'), 520);
+
+          if(isMobile){
+            page.style.opacity = '0';
+            page.style.left = '2.5%';
+            page.style.transform = stackTransforms[currentIndex];
+            page.classList.add('turned','mobileSettling');
+            requestAnimationFrame(()=>{
+              page.style.opacity = '1';
+            });
+            setTimeout(()=>page.classList.remove('mobileSettling'), 220);
+          } else {
+            page.classList.add('settling','turned');
+            page.style.left = '2.5%';
+            page.style.transform = stackTransforms[currentIndex];
+            setTimeout(()=>page.classList.remove('settling'), 520);
+          }
         }, { once:true });
 
         index += 1;
