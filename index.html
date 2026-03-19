@@ -487,10 +487,10 @@ button{
 .roseBloom .roseGlow{position:absolute;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(255,120,160,.25),transparent 70%);animation:rosePulse 3s ease-in-out infinite}
 @keyframes rosePulse{0%,100%{transform:scale(.95);opacity:.6}50%{transform:scale(1.08);opacity:.9}}
 
-.galleryWrap{position:relative;text-align:center;width:min(980px,94vw);transition:transform 2.6s ease, filter 2.2s ease}
+.galleryWrap{position:relative;text-align:center;width:min(980px,94vw);transition:transform 2.6s ease, filter 2.2s ease;padding-top:40px}
 .galleryWrap.finaleLive{transform:scale(1.025);filter:saturate(1.04)}
 .galleryWrap.heartReveal{transform:scale(.985);filter:brightness(.86) saturate(.95)}
-.heart-stage{position:relative;width:520px;height:500px;margin:auto;transition:transform .7s ease, filter .7s ease}
+.heart-stage{position:relative;width:520px;height:500px;margin:auto;transition:transform .7s ease, filter .7s ease;transform:translateY(-40px)}
 .heartGlow{position:absolute;left:50%;top:50%;width:320px;height:300px;transform:translate(-50%,-50%) scale(.82);border-radius:50%;background:radial-gradient(circle, rgba(255,214,150,.30) 0%, rgba(255,120,160,.18) 32%, rgba(255,210,120,.08) 48%, transparent 72%);filter:blur(18px);opacity:0;transition:opacity .8s ease, transform .8s ease;pointer-events:none}
 .heartGlow.show{opacity:1;transform:translate(-50%,-50%) scale(1);animation:heartGlowPulse 2.8s ease-in-out infinite}
 .photo{position:absolute;width:66px;height:66px;border-radius:14px;border:3px solid white;object-fit:cover;left:50%;top:50%;transform:translate(-50%,-50%) scale(.42) rotate(var(--r,0deg));opacity:0;box-shadow:0 10px 18px rgba(0,0,0,.22);transition:left 1.9s cubic-bezier(.2,.8,.2,1), top 1.9s cubic-bezier(.2,.8,.2,1), transform 1.9s cubic-bezier(.2,.8,.2,1), opacity .7s ease}
@@ -618,7 +618,11 @@ button{
   .bookRight,.bookPage{padding:14px 10px}
   .bookControls{position:absolute;bottom:-126px;left:50%;transform:translateX(-50%);flex-direction:column;gap:10px;width:92vw;max-width:340px}
   .bookHint,.bookNextBtn{width:100%;text-align:center}
-  .heart-stage{width:96vw;height:440px}
+  .heart-stage{width:96vw;height:440px;transform:translateY(-70px)}
+  .photo{width:44px;height:44px;border-radius:8px}
+  .finalTitle{font-size:clamp(1rem,5.6vw,1.35rem)}
+  .finalSub{font-size:clamp(.82rem,3.5vw,.92rem)}
+}
   .photo{width:44px;height:44px;border-radius:8px}
   .finalTitle{font-size:clamp(1rem,5.6vw,1.35rem)}
   .finalSub{font-size:clamp(.82rem,3.5vw,.92rem)}
