@@ -490,7 +490,7 @@ button{
 .galleryWrap{position:relative;text-align:center;width:min(980px,94vw);transition:transform 2.6s ease, filter 2.2s ease;padding-top:20px;display:flex;flex-direction:column;align-items:center;gap:10px}
 .galleryWrap.finaleLive{transform:scale(1.025);filter:saturate(1.04)}
 .galleryWrap.heartReveal{transform:scale(.985);filter:brightness(.86) saturate(.95)}
-.heart-stage{position:relative;width:520px;height:500px;margin:0 auto;transition:transform .7s ease, filter .7s ease;transform:none}
+.heart-stage{position:relative;width:520px;height:500px;margin:0 auto;transition:transform .7s ease, filter .7s ease;transform:none;margin-top:-20px}
 .heartGlow{position:absolute;left:50%;top:50%;width:320px;height:300px;transform:translate(-50%,-50%) scale(.82);border-radius:50%;background:radial-gradient(circle, rgba(255,214,150,.30) 0%, rgba(255,120,160,.18) 32%, rgba(255,210,120,.08) 48%, transparent 72%);filter:blur(18px);opacity:0;transition:opacity .8s ease, transform .8s ease;pointer-events:none}
 .heartGlow.show{opacity:1;transform:translate(-50%,-50%) scale(1);animation:heartGlowPulse 2.8s ease-in-out infinite}
 .photo{position:absolute;width:66px;height:66px;border-radius:14px;border:3px solid white;object-fit:cover;left:50%;top:50%;transform:translate(-50%,-50%) scale(.42) rotate(var(--r,0deg));opacity:0;box-shadow:0 10px 18px rgba(0,0,0,.22);transition:left 1.9s cubic-bezier(.2,.8,.2,1), top 1.9s cubic-bezier(.2,.8,.2,1), transform 1.9s cubic-bezier(.2,.8,.2,1), opacity .7s ease}
@@ -500,8 +500,8 @@ button{
 .heart-stage.arriving .photo{filter:saturate(.96) brightness(.98)}
 @keyframes heartBeat{0%,100%{transform:scale(1)}22%{transform:scale(1.05)}40%{transform:scale(1)}62%{transform:scale(1.08)}82%{transform:scale(1.02)}}
 @keyframes heartGlowPulse{0%,100%{opacity:.92;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}}
-.finalTitle{font-family:'Cinzel',serif;font-size:clamp(1.8rem,3vw,2.4rem);margin:0;color:var(--gold-soft);text-shadow:0 0 18px rgba(255,220,160,.15), 0 0 34px rgba(255,210,120,.10);animation:titleFloat 3.6s ease-in-out infinite;position:relative;z-index:8}
-.finalSub{max-width:700px;margin:0 auto 4px;font-size:clamp(1rem,1.8vw,1.18rem);transform:none;position:relative;z-index:8;padding:0 10px}
+.finalTitle{font-family:'Cinzel',serif;font-size:clamp(1.8rem,3vw,2.4rem);margin:0 0 10px;color:var(--gold-soft);text-shadow:0 0 18px rgba(255,220,160,.15), 0 0 34px rgba(255,210,120,.10);animation:titleFloat 3.6s ease-in-out infinite;position:relative;z-index:8}
+.finalSub{max-width:700px;margin:8px auto 16px;font-size:clamp(1rem,1.8vw,1.18rem);transform:none;position:relative;z-index:8;padding:0 14px;line-height:1.4}
 .finalFade{position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at center, rgba(255,228,170,.08), rgba(20,8,18,.82) 70%);opacity:0;transition:opacity 1.8s ease;z-index:30}
 .transitionVeil{position:fixed;inset:0;pointer-events:none;opacity:0;background:rgba(0,0,0,0.85);transition:opacity .45s ease;z-index:999}
 .transitionVeil.show{opacity:1}
