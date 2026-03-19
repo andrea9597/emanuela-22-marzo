@@ -403,6 +403,7 @@ button{
 .bookShadow{position:absolute;left:50%;bottom:-14px;transform:translateX(-50%);width:74%;height:24px;background:radial-gradient(circle, rgba(0,0,0,.34), transparent 70%);filter:blur(8px)}
 .bookSpine{position:absolute;left:50%;top:5%;bottom:5%;width:18px;transform:translateX(-50%);background:linear-gradient(180deg,#a58146,#5e3f14,#a58146);border-radius:10px;box-shadow:inset 0 0 6px rgba(255,255,255,.08), 0 0 8px rgba(0,0,0,.18);z-index:2}
 .book{position:absolute;inset:0}
+.bookLeftStack{position:absolute;left:2.5%;top:5%;width:47%;height:90%;pointer-events:none;z-index:1;border-radius:16px 6px 6px 16px;background:linear-gradient(180deg,rgba(255,250,241,.10),rgba(239,226,203,.04));box-shadow:inset 0 0 0 1px rgba(255,255,255,.04), inset -14px 0 18px rgba(0,0,0,.08)}
 .bookCover,
 .bookRight,
 .bookPage{
@@ -432,11 +433,17 @@ button{
 @keyframes sealPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 .bookRight{right:2.5%;background:linear-gradient(180deg,#fcf7ee,#eee1ca);color:var(--ink);padding:26px 20px;border-radius:6px 16px 16px 6px;box-shadow:0 12px 18px rgba(0,0,0,.12), inset 0 0 0 1px rgba(0,0,0,.05);z-index:1}
 .bookPage{left:50%;transform-origin:left center;background:linear-gradient(180deg,#fffaf1,#efe2cb);color:var(--ink);padding:26px 20px;border-radius:6px 16px 16px 6px;box-shadow:0 12px 18px rgba(0,0,0,.12), inset 0 0 0 1px rgba(0,0,0,.05)}
+.bookPage.settling{transition:left .55s cubic-bezier(.2,.8,.2,1), transform .55s cubic-bezier(.2,.8,.2,1), box-shadow .55s ease}
 .pageFrame{position:absolute;inset:12px;border:1px solid rgba(93,66,27,.10);pointer-events:none;border-radius:10px}
 .bookPage .pageCurl{position:absolute;right:0;top:8%;bottom:8%;width:18px;background:linear-gradient(90deg,rgba(255,255,255,.14),rgba(255,255,255,.02) 35%,rgba(0,0,0,.10) 100%);opacity:.14;pointer-events:none;border-radius:0 10px 10px 0}
 .bookPage.page1{z-index:7}
 .bookPage.page2{z-index:6}
 .bookPage.page3{z-index:5}
+.bookPage.turned{left:2.5%;transform-origin:right center;pointer-events:none;box-shadow:0 8px 14px rgba(0,0,0,.10), inset 0 0 0 1px rgba(0,0,0,.04)}
+.bookPage.turned .pageCurl{display:none}
+.bookPage.page1.turned{transform:translateX(12px);z-index:2}
+.bookPage.page2.turned{transform:translateX(6px);z-index:3}
+.bookPage.page3.turned{transform:translateX(0);z-index:4}
 .bookTitle{font-family:'Cinzel',serif;font-size:clamp(1.3rem,2.3vw,1.8rem);margin-bottom:10px}
 .bookCopy{font-size:clamp(.92rem,1.7vw,1.04rem);line-height:1.5}
 .pagePhotoFrame{margin-top:12px;padding:8px;background:#fff8ee;border-radius:12px;box-shadow:0 8px 14px rgba(0,0,0,.12);transform:rotate(var(--tilt,-1deg))}
@@ -450,10 +457,10 @@ button{
 .bookPage.flip{animation:pageTurnReal 1.9s ease forwards}
 @keyframes pageTurnReal{
   0%{transform:rotateY(0deg)}
-  18%{transform:rotateY(-14deg)}
-  52%{transform:rotateY(-92deg);box-shadow:-14px 16px 26px rgba(0,0,0,.18)}
-  82%{transform:rotateY(-154deg)}
-  100%{transform:rotateY(-180deg);box-shadow:-6px 6px 12px rgba(0,0,0,.08)}
+  14%{transform:rotateY(-8deg)}
+  44%{transform:rotateY(-92deg);box-shadow:-18px 18px 28px rgba(0,0,0,.20)}
+  78%{transform:rotateY(-168deg)}
+  100%{transform:rotateY(-180deg);box-shadow:-8px 8px 14px rgba(0,0,0,.10)}
 }
 .bookPage.flip .pageCurl{animation:curlShift 1.9s ease forwards}
 @keyframes curlShift{
@@ -465,6 +472,13 @@ button{
 .bookHint{padding:10px 16px;border-radius:999px;background:rgba(20,10,20,.82);border:1px solid rgba(215,181,109,.25);color:var(--gold-soft);font-family:'Cinzel',serif;font-size:.9rem}
 .bookNextBtn{padding:10px 16px;border-radius:999px;border:none;cursor:pointer;font-family:'Cinzel',serif;background:linear-gradient(135deg,#ead39b,#b58a43);color:#2d1820;box-shadow:0 10px 20px rgba(181,138,67,.22)}
 .bookNextBtn.hidden{display:none}
+.bookDustLayer{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:30}
+.bookDust{position:absolute;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle, rgba(255,241,190,.95) 0%, rgba(255,210,120,.65) 45%, rgba(255,180,90,0) 75%);filter:blur(.2px);opacity:0;animation:bookDustFloat 1.8s ease-out forwards}
+@keyframes bookDustFloat{
+  0%{transform:translate3d(0,0,0) scale(.5);opacity:0}
+  18%{opacity:1}
+  100%{transform:translate3d(var(--dx,0px),var(--dy,-80px),0) scale(1.35);opacity:0}
+}
 
 .letterScene{position:relative;width:min(760px,90vw);height:min(520px,70vh);display:flex;align-items:center;justify-content:center}
 .letterGlow{position:absolute;inset:12% 18%;background:radial-gradient(circle, rgba(255,220,150,.18), transparent 70%);filter:blur(24px)}
@@ -554,7 +568,60 @@ button{
 .restartBtn:hover{transform:translateY(-1px)}
 .envelopeBtn{animation:envelopeBreath 2.4s ease-in-out infinite}
 @keyframes envelopeBreath{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-2px) scale(1.035)}}
-@keyframes envelopeArrival{0%{opacity:0;transform:translateY(22px) scale(.82)}55%{opacity:1;transform:translateY(-18px) scale(1.05)}100%{opacity:1;transform:translateY(-10px) scale(1)}}
+@keyframes envelopeArrival{
+  0%{opacity:0;transform:translateY(22px) scale(.82)}
+  55%{opacity:1;transform:translateY(-18px) scale(1.05)}
+  100%{opacity:1;transform:translateY(-10px) scale(1)}
+}
+
+.bookScene.cinemaClose{
+  animation:bookZoomFade 1.2s ease forwards;
+}
+@keyframes bookZoomFade{
+  0%{transform:scale(1);opacity:1;filter:blur(0px)}
+  60%{transform:scale(1.045);opacity:.92;filter:blur(1px)}
+  100%{transform:scale(.96);opacity:0;filter:blur(4px)}
+}
+
+.stage::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:radial-gradient(circle at center, transparent 42%, rgba(10,3,10,.12) 70%, rgba(4,1,6,.42) 100%);
+  opacity:.9;
+}
+
+.introText p{
+  text-shadow:0 0 18px rgba(255,220,160,.10);
+}
+
+.finalTitle,
+.finalSub{
+  animation:finalTextFloat 4.8s ease-in-out infinite;
+}
+.finalSub{animation-delay:.35s}
+@keyframes finalTextFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-3px)}
+}
+
+.photo.show{
+  opacity:1;
+  transform:translate(-50%,-50%) scale(1) rotate(var(--r,0deg));
+  box-shadow:0 12px 22px rgba(0,0,0,.26), 0 0 14px rgba(255,205,135,.16);
+}
+
+.heartGlow.show{
+  opacity:1;
+  transform:translate(-50%,-50%) scale(1);
+  animation:heartGlowPulse 2.8s ease-in-out infinite, heartGlowBreath 5.2s ease-in-out infinite;
+}
+@keyframes heartGlowBreath{
+  0%,100%{filter:blur(18px) brightness(1)}
+  50%{filter:blur(22px) brightness(1.08)}
+}
+
 @keyframes titleFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 
 @media (max-width: 900px){
@@ -640,7 +707,7 @@ button{
 <section id="prelude3" class="screen"><div class="wordScene"><div class="wordCard"><div class="wordTitle">Emanuela</div></div></div></section>
 <section id="prelude4" class="screen"><div class="wordScene"><div class="birthdaySceneCard"><div class="birthdaySpark s1">✨</div><div class="birthdaySpark s2">🌟</div><div class="birthdaySpark s3">✨</div><div class="birthdaySpark s4">💫</div><div class="birthdayCakeHero"><div class="birthdayTierTop"><div class="birthdayIcingTop"></div><div class="birthdayCandle c1"></div><div class="birthdayCandle c2"></div><div class="birthdayCandle c3"></div></div><div class="birthdayTierBottom"><div class="birthdayIcingBottom"></div></div><div class="birthdayPlate"></div></div><div style="font-size:46px;margin-bottom:8px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.18));">🐻🎀</div><div class="birthdayMain">Tanti Auguri</div><div class="birthdaySub">Emanuela ✦ Una torta, un desiderio e una giornata piena di magia.</div></div></div></section>
 <section id="intro" class="screen"><div class="stage"><div class="stageLight" id="stageLight"></div><div class="top-valance"></div><div class="rail"></div><div class="chandelier"><div class="arm left"></div><div class="armMid"></div><div class="arm right"></div><div class="candle c1"></div><div class="candle c2"></div><div class="candle c3"></div><div class="drop d1"></div><div class="drop d2"></div><div class="drop d3"></div><div class="dropSmall s1"></div><div class="dropSmall s2"></div></div><div class="curtain left" id="curtainL"><div class="fabric"></div><div class="tie"></div></div><div class="curtain right" id="curtainR"><div class="fabric"></div><div class="tie"></div></div><div class="introText" id="introText"><h2 class="writeTitle">Lady Emanuela</h2><p>Cari gentili lettori…</p><p>questa sera il sipario si apre per celebrare qualcuno di speciale.</p><p>Una presenza rara che rende tutto più bello.</p></div></div></section>
-<section id="book" class="screen"><div class="bookScene"><div class="bookContainer"><div class="bookShadow"></div><div class="bookSpine"></div><div class="book" id="bookAnim"><div class="bookCover" id="cover"><div class="coverTitle">Emanuela</div><div class="coverCrest">✦</div><div class="coverSeal" id="coverSeal">A</div></div><div class="bookPage page1" id="p1" aria-label="Pagina 1"><div class="pageFrame"></div><div class="pageCurl"></div><div class="bookTitle">Capitolo I</div><div class="bookCopy">Ogni storia speciale merita di essere raccontata.</div><div class="pagePhotoFrame" style="--tilt:-2deg"><img src="https://picsum.photos/500/300?random=1" alt="ricordo 1"></div><div class="pageNote">Un ricordo speciale</div></div><div class="bookPage page2" id="p2" aria-label="Pagina 2"><div class="pageFrame"></div><div class="pageCurl"></div><div class="bookTitle">Capitolo II</div><div class="bookCopy">Ci sono persone che entrano nella nostra vita e cambiano il mondo.</div><div class="pagePhotoFrame" style="--tilt:1.5deg"><img src="https://picsum.photos/500/300?random=2" alt="ricordo 2"></div><div class="pageNote">Un momento da custodire</div></div><div class="bookPage page3" id="p3" aria-label="Pagina 3"><div class="pageFrame"></div><div class="pageCurl"></div><div class="bookTitle">Capitolo III</div><div class="bookCopy">E alcune persone meritano un giorno davvero speciale.</div><div class="pagePhotoFrame" style="--tilt:-1deg"><img src="https://picsum.photos/500/300?random=3" alt="ricordo 3"></div><div class="pageNote">Un frammento da ricordare</div></div><div class="bookRight"><div class="pageFrame"></div><div class="bookTitle">22 Marzo</div><div class="bookCopy">Buon compleanno Emanuela.</div><div class="pagePhotoFrame" style="--tilt:1deg"><img src="https://picsum.photos/500/300?random=4" alt="pagina finale"></div><div class="pageNote">Per ricordare questo giorno</div><div class="bookSign">Con affetto sincero ✦</div></div></div><div class="bookControls"><div class="bookHint">Sfoglia tu il libro ✨</div><button class="bookNextBtn" id="bookNextBtn">Pagina successiva</button></div></div></div></section>
+<section id="book" class="screen"><div class="bookScene"><div class="bookContainer"><div class="bookShadow"></div><div class="bookSpine"></div><div class="bookDustLayer" id="bookDustLayer"></div><div class="book" id="bookAnim"><div class="bookLeftStack"></div><div class="bookCover" id="cover"><div class="coverTitle">Emanuela</div><div class="coverCrest">✦</div><div class="coverSeal" id="coverSeal">A</div></div><div class="bookPage page1" id="p1" aria-label="Pagina 1"><div class="pageFrame"></div><div class="pageCurl"></div><div class="bookTitle">Capitolo I</div><div class="bookCopy">Ogni storia speciale merita di essere raccontata.</div><div class="pagePhotoFrame" style="--tilt:-2deg"><img src="https://picsum.photos/500/300?random=1" alt="ricordo 1"></div><div class="pageNote">Un ricordo speciale</div></div><div class="bookPage page2" id="p2" aria-label="Pagina 2"><div class="pageFrame"></div><div class="pageCurl"></div><div class="bookTitle">Capitolo II</div><div class="bookCopy">Ci sono persone che entrano nella nostra vita e cambiano il mondo.</div><div class="pagePhotoFrame" style="--tilt:1.5deg"><img src="https://picsum.photos/500/300?random=2" alt="ricordo 2"></div><div class="pageNote">Un momento da custodire</div></div><div class="bookPage page3" id="p3" aria-label="Pagina 3"><div class="pageFrame"></div><div class="pageCurl"></div><div class="bookTitle">Capitolo III</div><div class="bookCopy">E alcune persone meritano un giorno davvero speciale.</div><div class="pagePhotoFrame" style="--tilt:-1deg"><img src="https://picsum.photos/500/300?random=3" alt="ricordo 3"></div><div class="pageNote">Un frammento da ricordare</div></div><div class="bookRight"><div class="pageFrame"></div><div class="bookTitle">22 Marzo</div><div class="bookCopy">Buon compleanno Emanuela.</div><div class="pagePhotoFrame" style="--tilt:1deg"><img src="https://picsum.photos/500/300?random=4" alt="pagina finale"></div><div class="pageNote">Per ricordare questo giorno</div><div class="bookSign">Con affetto sincero ✦</div></div></div><div class="bookControls"><div class="bookHint">Sfoglia tu il libro ✨</div><button class="bookNextBtn" id="bookNextBtn">Pagina successiva</button></div></div></div></section>
 <section id="message" class="screen"><div class="letterScene" style="flex-direction:column;"><div class="letterGlow"></div><div class="sparkleLayer" id="messageSparkles"></div><div class="messageEmojiLayer" id="messageEmojiLayer"></div><div class="letter"><div class="letterDate">Un piccolo finale extra</div><div class="letterTitle">Questo è solo l'inizio</div><div class="letterCopy">Che il resto di questa giornata possa sorprenderti, farti sorridere e ricordarti quanto può essere bella la magia dei piccoli gesti.</div><div class="letterSign">Per rendere speciale il tuo 22 marzo ✦</div></div><div class="restartWrap" id="restartWrap"><button class="restartBtn" id="restartBtn">Rivedi da capo ✨</button></div></div></section>
 <section id="letter" class="screen"><div class="letterScene"><div class="letterGlow"></div><div class="sparkleLayer" id="letterSparkles"></div><div class="letter"><div class="letterDate">22 Marzo</div><div class="letterTitle">Una lettera per te</div><div class="letterCopy">In questo giorno speciale il sipario si apre per celebrare una presenza rara.<br><br>Una persona capace di portare luce, bellezza e magia anche nei dettagli più piccoli.</div><div class="letterSign">Con affetto sincero ✦</div></div></div></section>
 <section id="gallery" class="screen"><div class="galleryWrap"><div class="sparkleLayer" id="finalSparkles"></div><div class="galleryEmojiLayer" id="galleryEmojiLayer"></div><div class="roseBloom" id="roseBloom"><div class="roseGlow"></div><svg viewBox="0 0 100 100" aria-hidden="true"><defs><radialGradient id="g" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#ff7aa5"/><stop offset="60%" stop-color="#c2185b"/><stop offset="100%" stop-color="#6a0830"/></radialGradient></defs><path fill="url(#g)" d="M50 18c8-10 26-4 26 8 0 8-6 12-11 15 9 1 17 7 17 16 0 12-12 20-32 20s-32-8-32-20c0-9 8-15 17-16-5-3-11-7-11-15 0-12 18-18 26-8z"/></svg></div><div class="finalTitle">Buon compleanno Emanuela ❤️</div><div class="finalSub">Una piccola esperienza pensata per rendere questo giorno ancora più speciale.</div><div class="heart-stage" id="heartStage"><div class="heartGlow" id="heartGlow"></div></div><div class="envelopeWrap" id="envelopeWrap"><div class="envelopeHalo"></div><button class="envelopeBtn" id="envelopeBtn" aria-label="Apri l'ultima lettera"></button><div class="envelopeText">Apri l'ultima lettera</div></div></div>
@@ -708,6 +775,11 @@ function playHeartChime(){
   playTone(523.25, .18, 'sine', .018, 0);
   playTone(659.25, .22, 'sine', .016, .06);
   playTone(783.99, .28, 'sine', .014, .14);
+}
+
+function playCloseThump(){
+  playTone(120, .25, 'sine', .04, 0);
+  playTone(90, .35, 'triangle', .03, .05);
 }
 
 function flashTransition(duration=600){
@@ -1089,9 +1161,24 @@ function resetExperience(){
   byId('introText')?.classList.remove('show');
   byId('stageLight')?.classList.remove('show');
   byId('cover')?.classList.remove('open','close');
-  byId('p1')?.classList.remove('flip');
-  byId('p2')?.classList.remove('flip');
-  byId('p3')?.classList.remove('flip');
+  [byId('p1'), byId('p2'), byId('p3')].forEach((page)=>{
+    page?.classList.remove('flip','turned','settling');
+    if(page){
+      page.style.left='';
+      page.style.transform='';
+      page.style.opacity='';
+      page.style.transition='';
+      page.style.pointerEvents='';
+    }
+  });
+  byId('bookDustLayer')?.replaceChildren();
+  const finalRightPage = document.querySelector('.bookRight');
+  if(finalRightPage){
+    finalRightPage.style.transform='';
+    finalRightPage.style.opacity='';
+    finalRightPage.style.transition='';
+    finalRightPage.style.transformOrigin='';
+  }
   byId('coverSeal')?.classList.remove('animate');
   byId('roseBloom')?.classList.remove('show');
   byId('heartStage')?.classList.remove('beat','heartTight','arriving');
@@ -1118,28 +1205,88 @@ function resetExperience(){
   }
 }
 
+function createBookDustBurst(amount=24){
+  const layer = byId('bookDustLayer');
+  if(!layer) return;
+  for(let i=0;i<amount;i++){
+    const d = document.createElement('span');
+    d.className = 'bookDust';
+    d.style.left = (44 + Math.random()*14) + '%';
+    d.style.top = (18 + Math.random()*36) + '%';
+    d.style.setProperty('--dx', ((Math.random()-.5)*120).toFixed(1)+'px');
+    d.style.setProperty('--dy', (-(40 + Math.random()*90)).toFixed(1)+'px');
+    d.style.animationDelay = (Math.random()*120) + 'ms';
+    layer.appendChild(d);
+    setTimeout(()=>d.remove(), 2100);
+  }
+}
+
 function waitForBookReading(){
   return new Promise(resolve=>{
-    const nextBtn=byId('bookNextBtn');
-    const pages=[byId('p1'),byId('p2'),byId('p3')].filter(Boolean);
+    const nextBtn = byId('bookNextBtn');
+    const pages = [byId('p1'), byId('p2'), byId('p3')].filter(Boolean);
+    const finalRightPage = document.querySelector('.bookRight');
+    const stackTransforms = ['translateX(12px)','translateX(6px)','translateX(0)'];
+
     if(!nextBtn || pages.length===0){
       resolve();
       return;
     }
-    let index=0;
+
+    let index = 0;
     nextBtn.classList.remove('hidden');
-    nextBtn.textContent='Pagina successiva';
-    nextBtn.onclick=()=>{
-      if(index<pages.length){
-        pages[index].classList.add('flip');
+    nextBtn.textContent = 'Pagina successiva';
+
+    nextBtn.onclick = ()=>{
+      if(index < pages.length){
+        const page = pages[index];
+        if(page.classList.contains('flip') || page.classList.contains('turned')) return;
+
+        page.classList.add('flip');
         playPageFlip();
-        index+=1;
-        if(index>=pages.length) nextBtn.textContent='Continua';
+
+        const currentIndex = index;
+        page.addEventListener('animationend', ()=>{
+          page.classList.remove('flip');
+          page.classList.add('settling','turned');
+          page.style.left = '2.5%';
+          page.style.transform = stackTransforms[currentIndex];
+          setTimeout(()=>page.classList.remove('settling'), 520);
+        }, { once:true });
+
+        index += 1;
+        if(index >= pages.length) nextBtn.textContent = 'Chiudi libro';
         return;
       }
-      nextBtn.classList.add('hidden');
-      nextBtn.onclick=null;
-      resolve();
+
+      const cover = byId('cover');
+
+      const bookScene = document.querySelector('.bookScene');
+
+      if(finalRightPage){
+        finalRightPage.style.transition = 'transform .7s ease, opacity .45s ease';
+        finalRightPage.style.transformOrigin = 'left center';
+        finalRightPage.style.transform = 'rotateY(-180deg)';
+        finalRightPage.style.opacity = '0';
+      }
+
+      playPageFlip();
+      playCloseThump();
+
+      setTimeout(()=>{
+        cover?.classList.remove('open');
+        cover?.classList.add('close');
+      }, 520);
+
+      setTimeout(()=>{
+        bookScene?.classList.add('cinemaClose');
+      }, 900);
+
+      setTimeout(()=>{
+        nextBtn.classList.add('hidden');
+        nextBtn.onclick = null;
+        resolve();
+      }, 1800);
     };
   });
 }
@@ -1199,9 +1346,6 @@ async function start(){
   await wait(1900);
   await waitForBookReading();
 
-  await wait(1300);
-  byId('cover')?.classList.remove('open');
-  byId('cover')?.classList.add('close');
 
   await wait(2000);
   await flashTransition();
