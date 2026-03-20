@@ -443,9 +443,10 @@ button{
 .bookPage.page4{z-index:5}
 .bookPage.turned{left:2.5%;transform-origin:right center;pointer-events:none;box-shadow:0 8px 14px rgba(0,0,0,.10), inset 0 0 0 1px rgba(0,0,0,.04)}
 .bookPage.turned .pageCurl{display:none}
-.bookPage.page1.turned{transform:translateX(12px);z-index:2}
-.bookPage.page2.turned{transform:translateX(6px);z-index:3}
-.bookPage.page3.turned{transform:translateX(0);z-index:4}
+.bookPage.page1.turned{transform:translateX(42px);z-index:2}
+.bookPage.page2.turned{transform:translateX(28px);z-index:3}
+.bookPage.page3.turned{transform:translateX(14px);z-index:4}
+.bookPage.page4.turned{transform:translateX(0);z-index:5}
 .bookPageClone{
   position:absolute;
   left:2.5%;
@@ -455,16 +456,16 @@ button{
   overflow:hidden;
   background:linear-gradient(180deg,#fffaf1,#efe2cb);
   color:var(--ink);
-  padding:26px 20px;
+  padding:30px 24px;
   border-radius:16px 6px 6px 16px;
   box-shadow:0 8px 14px rgba(0,0,0,.10), inset 0 0 0 1px rgba(0,0,0,.04);
   pointer-events:none;
 }
 .bookPageClone .pageCurl{display:none}
-.bookPageClone.clone1{transform:translateX(18px);z-index:2}
-.bookPageClone.clone2{transform:translateX(12px);z-index:3}
-.bookPageClone.clone3{transform:translateX(6px);z-index:4}
-.bookPageClone.clone4{transform:translateX(0);z-index:5}
+.bookPageClone.clone1{transform:translateX(56px);z-index:2}
+.bookPageClone.clone2{transform:translateX(42px);z-index:3}
+.bookPageClone.clone3{transform:translateX(28px);z-index:4}
+.bookPageClone.clone4{transform:translateX(14px);z-index:5}
 .bookTitle{font-family:'Cinzel',serif;font-size:clamp(1.3rem,2.3vw,1.8rem);margin-bottom:10px}
 .bookCopy{font-size:clamp(.92rem,1.7vw,1.04rem);line-height:1.5}
 .pagePhotoFrame{margin-top:12px;padding:8px;background:#fff8ee;border-radius:12px;box-shadow:0 8px 14px rgba(0,0,0,.12);transform:rotate(var(--tilt,-1deg))}
@@ -669,7 +670,7 @@ button{
   .introText{width:min(86vw,560px);padding:0 10px}
   .introText p{font-size:1.1rem}
   .bookContainer{width:min(96vw,720px);height:min(420px,58vh)}
-  .bookRight,.bookPage{padding:18px 14px}
+  .bookRight,.bookPage{padding:26px 20px}
   .pagePhotoGrid{gap:8px}
   .pagePhotoGrid .pagePhotoFrame img{height:66px}
   .pagePhotoGrid .pagePhotoFrame.wide img{height:82px}
