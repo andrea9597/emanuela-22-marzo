@@ -399,7 +399,13 @@ button{
 }
 
 .bookScene{display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:96px 24px 24px;transition:opacity .45s ease, transform .45s ease}
-.bookContainer{width:min(860px,94vw);height:min(480px,66vh);position:relative;transition:transform .45s ease;transform:translateY(72px)}
+.bookContainer{
+  width:min(980px,96vw);
+  height:min(560px,76vh);
+  position:relative;
+  transition:transform .45s ease;
+  transform:translateY(72px);
+}
 .bookShadow{position:absolute;left:50%;bottom:-14px;transform:translateX(-50%);width:74%;height:24px;background:radial-gradient(circle, rgba(0,0,0,.34), transparent 70%);filter:blur(8px)}
 .bookSpine{position:absolute;left:50%;top:5%;bottom:5%;width:18px;transform:translateX(-50%);background:linear-gradient(180deg,#a58146,#5e3f14,#a58146);border-radius:10px;box-shadow:inset 0 0 6px rgba(255,255,255,.08), 0 0 8px rgba(0,0,0,.18);z-index:2}
 .book{position:absolute;inset:0}
