@@ -785,43 +785,53 @@ button{
   .finalTitle{font-size:clamp(1rem,5.6vw,1.35rem);margin:0 0 6px}
   .finalSub{font-size:clamp(.82rem,3.5vw,.92rem);margin:0 auto 12px;line-height:1.35}
 
-    .letterScene{
-    width:100%;
-    height:100%;
-    padding:8px;
-    align-items:flex-start;  
+  .letterScene{
+  width:100%;
+  height:100%;
+  padding:8px;
+  align-items:flex-start;
+  justify-content:center;
   }
 
   .letter{
-    margin-top:30px; 
-    max-width:92vw;
     width:92vw;
-    max-height:78vh;
-    padding:20px 16px;
+    max-width:92vw;
+    max-height:76vh;
+    margin-top:18px;
+    padding:18px 14px;
     border-radius:10px;
     overflow:auto;
   }
 
   .letterTitle{
-    font-size:clamp(1.05rem,4.8vw,1.45rem);
-    margin-bottom:10px;
+    font-size:clamp(1.02rem,4.6vw,1.35rem);
+    margin-bottom:8px;
   }
 
   .letterDate{
-    font-size:.68rem;
-    letter-spacing:.12em;
-    margin-bottom:10px;
+    font-size:.66rem;
+    letter-spacing:.1em;
+    margin-bottom:8px;
   }
 
   .letterCopy{
-    font-size:clamp(.88rem,3.3vw,1rem);
+    font-size:clamp(.86rem,3.2vw,.98rem);
     line-height:1.45;
-    margin:10px 0;
+    text-align:center;
+    padding:0 4px;;
+  }
+
+  .letterCopy p{
+    margin:0 0 12px 0;
+  }
+
+  .letterCopy p:last-child{
+    margin-bottom:0;
   }
 
   .letterSign{
-    margin-top:14px;
-    font-size:.9rem;
+    margin-top:12px;
+    font-size:.88rem;
   }
 }
 </style>
