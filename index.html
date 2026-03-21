@@ -625,7 +625,18 @@ button{
 }
 .restartWrap{margin-top:18px;display:flex;justify-content:center;align-items:center;width:100%;left:0;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .45s ease, transform .45s ease;position:relative;z-index:3}
 .restartWrap.show{opacity:1;pointer-events:auto;transform:translateY(0)}
-.restartBtn{padding:12px 22px;border-radius:999px;border:1px solid rgba(215,181,109,.34);background:linear-gradient(180deg,rgba(255,248,231,.16),rgba(215,181,109,.18));color:var(--gold-soft);font-family:'Cinzel',serif;backdrop-filter:blur(6px);box-shadow:0 10px 24px rgba(0,0,0,.22)}
+.restartBtn{
+  display:block;
+  margin:0 auto;
+  padding:12px 22px;
+  border-radius:999px;
+  border:1px solid rgba(215,181,109,.34);
+  background:linear-gradient(180deg,rgba(255,248,231,.16),rgba(215,181,109,.18));
+  color:var(--gold-soft);
+  font-family:'Cinzel',serif;
+  backdrop-filter:blur(6px);
+  box-shadow:0 10px 24px rgba(0,0,0,.22);
+}
 .restartBtn:hover{transform:translateY(-1px)}
 .envelopeBtn{animation:envelopeBreath 2.4s ease-in-out infinite}
 @keyframes envelopeBreath{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-2px) scale(1.035)}}
