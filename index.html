@@ -1611,6 +1611,9 @@ async function startWrapper(){
   if(ENABLE_MINI_ROSES) createMiniRoses();
   startAmbientEmojiFlow();
   if(ENABLE_MUSIC) startMusicFadeIn();
+
+  await preloadImages([...heartImages, centerHeartImage]);
+
   await runCountdown();
   await start();
 }
