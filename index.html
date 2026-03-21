@@ -526,9 +526,9 @@ button{
 .letter{position:relative;background:linear-gradient(180deg,#fbf6eb,#efe4cf);color:var(--ink);padding:44px 42px;max-width:640px;border-radius:12px;box-shadow:0 18px 44px rgba(0,0,0,.5);animation:fadeIn 2s forwards;overflow:hidden}
 .letter::before{content:"";position:absolute;inset:14px;border:1px solid rgba(129,94,37,.18);pointer-events:none}
 .letterTitle{font-family:'Cinzel',serif;font-size:clamp(1.7rem,3vw,2.4rem);margin-bottom:14px;text-align:center}
-.letterDate{text-align:center;font-family:'Cinzel',serif;letter-spacing:.18em;text-transform:uppercase;font-size:.8rem;color:#8c6a2b;margin-bottom:14px}
+.letterDate{text-align:center;font-family:'Cinzel',serif;letter-spacing:.18em;text-transform:uppercase;font-size:.8rem;color:#8c6a2b;margin-bottom:10px}
 .letterCopy{font-size:clamp(1.08rem,1.9vw,1.3rem);line-height:1.72;text-align:center}
-.letterSign{margin-top:18px;text-align:center;font-style:italic;color:#6c4b1d}
+.letterSign{margin-top:14px;text-align:center;font-style:italic;color:#6c4b1d}
 @keyframes fadeIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
 
 .sparkleLayer{position:absolute;inset:0;pointer-events:none;overflow:hidden}
@@ -709,10 +709,10 @@ button{
   .pagePhotoGrid .pagePhotoFrame img{height:66px}
   .pagePhotoGrid .pagePhotoFrame.wide img{height:82px}
   .coverSeal{width:54px;height:54px;right:12px;bottom:12px;font-size:.85rem}
-  .letterScene{width:100%;height:100%;padding:16px}
-  .letter{max-width:min(92vw,560px);padding:26px 20px;border-radius:10px}
-  .letterTitle{font-size:clamp(1.25rem,5vw,1.8rem)}
-  .letterCopy{font-size:clamp(.95rem,3.4vw,1.08rem);line-height:1.55}
+  .letterScene{width:100%;height:100%;padding:10px}
+  .letter{max-width:min(92vw,560px);padding:20px 16px;border-radius:10px}
+  .letterTitle{font-size:clamp(1.05rem,4.6vw,1.4rem)}
+  .letterCopy{font-size:clamp(.88rem,3.3vw,1rem);line-height:1.45}
   .galleryWrap{width:min(96vw,720px)}
   .heart-stage{width:min(88vw,360px);height:min(48vh,340px)}
   .photo{width:52px;height:52px;border-radius:10px;border-width:2px}
@@ -1583,7 +1583,7 @@ async function start(){
   createMagicRise(14);
   buildSparkles('letterSparkles',22);
 
-  await wait(13000);
+  await wait(20000);
   await flashTransition(700);
   showScreen('gallery');
   startFinalMagic();
