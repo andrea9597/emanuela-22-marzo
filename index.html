@@ -289,7 +289,7 @@ button{
 .writeTitle{
   font-family:'Cinzel',serif;
   font-size:clamp(2rem,4vw,3rem);
-  letter-spacing:.08em;
+  -spacing:.08em;
   opacity:0;
   animation:writeIn 3s ease forwards;
 }
@@ -326,8 +326,8 @@ button{
   color:var(--gold-soft);
   text-shadow:0 0 18px rgba(255,220,160,.14);
 }
-.wordTitle{font-size:clamp(2.6rem,8vw,5.2rem);letter-spacing:.08em}
-.birthdayMain{font-size:clamp(2rem,7vw,4.2rem);letter-spacing:.06em;line-height:1.08}
+.wordTitle{font-size:clamp(2.6rem,8vw,5.2rem);-spacing:.08em}
+.birthdayMain{font-size:clamp(2rem,7vw,4.2rem);-spacing:.06em;line-height:1.08}
 .birthdaySub{margin-top:12px;font-size:clamp(1rem,3vw,1.22rem);color:#f5e8cd}
 
 .birthdayCakeHero{position:relative;width:170px;height:160px;margin:0 auto 18px}
@@ -433,9 +433,9 @@ button{
   box-shadow:0 16px 24px rgba(0,0,0,.24), inset 0 0 14px rgba(255,255,255,.04);
 }
 .bookCover::before{content:"";position:absolute;inset:18px;border:1px solid rgba(241,223,176,.24);border-radius:10px}
-.coverTitle{position:absolute;left:50%;top:43%;transform:translate(-50%,-50%);font-family:'Cinzel',serif;font-size:clamp(1.7rem,3vw,2.5rem);letter-spacing:.08em;color:rgba(241,223,176,.94);text-shadow:0 2px 12px rgba(0,0,0,.35);z-index:2;text-align:center;width:80%}
+.coverTitle{position:absolute;left:50%;top:43%;transform:translate(-50%,-50%);font-family:'Cinzel',serif;font-size:clamp(1.7rem,3vw,2.5rem);-spacing:.08em;color:rgba(241,223,176,.94);text-shadow:0 2px 12px rgba(0,0,0,.35);z-index:2;text-align:center;width:80%}
 .coverCrest{position:absolute;left:50%;top:64%;transform:translate(-50%,-50%);font-size:1.8rem;color:rgba(241,223,176,.9);z-index:2}
-.coverSeal{position:absolute;right:18px;bottom:18px;width:60px;height:60px;border-radius:50%;border:2px solid rgba(241,223,176,.5);box-shadow:0 0 12px rgba(241,223,176,.10), inset 0 0 8px rgba(255,255,255,.05);background:radial-gradient(circle at 35% 35%, rgba(255,245,214,.14), rgba(150,108,29,.18));display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:.95rem;color:rgba(241,223,176,.92);letter-spacing:.04em;z-index:2}
+.coverSeal{position:absolute;right:18px;bottom:18px;width:60px;height:60px;border-radius:50%;border:2px solid rgba(241,223,176,.5);box-shadow:0 0 12px rgba(241,223,176,.10), inset 0 0 8px rgba(255,255,255,.05);background:radial-gradient(circle at 35% 35%, rgba(255,245,214,.14), rgba(150,108,29,.18));display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:.95rem;color:rgba(241,223,176,.92);-spacing:.04em;z-index:2}
 .coverSeal::before{content:"";position:absolute;inset:8px;border:1px solid rgba(241,223,176,.22);border-radius:50%}
 .coverSeal.animate{animation:sealPulse 2.2s ease-in-out infinite}
 @keyframes sealPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
@@ -521,12 +521,12 @@ button{
   100%{transform:translate3d(var(--dx,0px),var(--dy,-80px),0) scale(1.35);opacity:0}
 }
 
-.letterScene{position:relative;width:min(760px,90vw);height:min(520px,70vh);display:flex;align-items:center;justify-content:center}
-.letterGlow{position:absolute;inset:12% 18%;background:radial-gradient(circle, rgba(255,220,150,.18), transparent 70%);filter:blur(24px)}
-.letter{position:relative;background:linear-gradient(180deg,#fbf6eb,#efe4cf);color:var(--ink);padding:44px 42px;max-width:640px;border-radius:12px;box-shadow:0 18px 44px rgba(0,0,0,.5);animation:fadeIn 2s forwards;overflow:hidden}
-.letter::before{content:"";position:absolute;inset:14px;border:1px solid rgba(129,94,37,.18);pointer-events:none}
-.letterTitle{font-family:'Cinzel',serif;font-size:clamp(1.7rem,3vw,2.4rem);margin-bottom:14px;text-align:center}
-.letterDate{text-align:center;font-family:'Cinzel',serif;letter-spacing:.18em;text-transform:uppercase;font-size:.8rem;color:#8c6a2b;margin-bottom:10px}
+.Scene{position:relative;width:min(760px,90vw);height:min(520px,70vh);display:flex;align-items:center;justify-content:center}
+.Glow{position:absolute;inset:12% 18%;background:radial-gradient(circle, rgba(255,220,150,.18), transparent 70%);filter:blur(24px)}
+.{position:relative;background:linear-gradient(180deg,#fbf6eb,#efe4cf);color:var(--ink);padding:44px 42px;max-width:640px;border-radius:12px;box-shadow:0 18px 44px rgba(0,0,0,.5);animation:fadeIn 2s forwards;overflow:hidden}
+.::before{content:"";position:absolute;inset:14px;border:1px solid rgba(129,94,37,.18);pointer-events:none}
+.Title{font-family:'Cinzel',serif;font-size:clamp(1.7rem,3vw,2.4rem);margin-bottom:14px;text-align:center}
+.Date{text-align:center;font-family:'Cinzel',serif;-spacing:.18em;text-transform:uppercase;font-size:.8rem;color:#8c6a2b;margin-bottom:10px}
 .letterCopy{font-size:clamp(1.08rem,1.9vw,1.3rem);line-height:1.72;text-align:center}
 .letterSign{margin-top:14px;text-align:center;font-style:italic;color:#6c4b1d}
 @keyframes fadeIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
@@ -881,55 +881,7 @@ button{
     display:flex;
     align-items:flex-start;
     justify-content:center;
-    padding-top:16px;
-  }
-  
-  #message .letterScene{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:10px;
-  }
-
-  #message .letter{
-    width:92vw;
-    max-width:92vw;
-    max-height:none;
-    overflow:hidden;
-    padding:10px 10px;
-    margin-top:0;
-  }
-
-  #message .letterTitle{
-    font-size:clamp(.95rem,4.2vw,1.15rem);
-    margin-bottom:6px;
-  }
-
-  #message .letterDate{
-    font-size:.6rem;
-    letter-spacing:.08em;
-    margin-bottom:6px;
-  }
-
-  #message .letterCopy{
-    font-size:clamp(.72rem,2.8vw,.82rem);
-    line-height:1.18;
-    text-align:center;
-    max-width:100%;
-    margin:0 auto;
-  }
-
-  #message .letterCopy p{
-    margin:0 0 3px 0;
-  }
-
-  #message .letterSign{
-    margin-top:8px;
-    font-size:.78rem;
-  }
-
-  #message .letterCopy strong{
-    font-weight:400;   /* praticamente normale */
+    padding-top:6px;
   }
 }
 </style>
