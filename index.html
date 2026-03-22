@@ -696,7 +696,7 @@ button{
 
 @keyframes titleFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 
-@(max-width: 900px){
+@media (max-width: 900px){
   .top-valance{height:96px}
   .rail{top:10px;height:14px}
   .chandelier{width:210px;height:150px;top:34px}
@@ -732,7 +732,7 @@ button{
   .countdown{font-size:clamp(3rem,18vw,5.2rem)}
 }
 
-@(max-width: 560px){
+@media (max-width: 560px){
   .envelopeWrap{
     margin-top:-70px;
     transform:translateY(-27px) scale(.94);
@@ -876,18 +876,19 @@ button{
     object-fit:cover;
     border-radius:12px;
   } 
-  
+
     #message .letterScene{
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content:center
+    justify-content:center;
     text-align:center;
   }
 
   #message .letter{
     width:92vw;
     max-width:92vw;
+    margin:2px auto 0 auto !important;
     margin:-5px auto 0 auto !important;
     left:0;
     right:0;
@@ -937,7 +938,7 @@ const screens = ["prelude1", "prelude2", "prelude3", "prelude4", "intro", "book"
 const ENABLE_MUSIC = true;
 const ENABLE_MINI_ROSES = true;
 const ENABLE_FINAL_CASCADE = true;
-const ENABLE_RESTART = true;
+const ENABLE_RESTART = false;
 
 const music = new Audio('https://cdn.shopify.com/s/files/1/0950/1019/3734/files/Bridgerton_Opening_Credits_Main_Title_Theme_Audio_BRIDGERTON_-_SOUNDTRACK.mp3?v=1773945152');
 music.loop = true;
