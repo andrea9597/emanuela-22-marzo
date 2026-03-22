@@ -877,6 +877,14 @@ button{
     border-radius:12px;
   }
 
+
+  #letter .letterScene{
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    padding-top:16px;
+  }
+  
   #message .letter{
     width:92vw;
     max-width:92vw;
@@ -885,9 +893,20 @@ button{
     padding:12px 10px;
   }
 
+  #message .letterTitle{
+    font-size:clamp(1.02rem,4.6vw,1.35rem);
+    margin-bottom:8px;
+  }
+
+  #message .letterDate{
+    font-size:.66rem;
+    letter-spacing:.1em;
+    margin-bottom:8px;
+  }
+
   #message .letterCopy{
     font-size:clamp(.78rem,3vw,.9rem);
-    line-height:1.28;
+    line-height:1.3;
     text-align:center;
     max-width:100%;
     margin:0 auto;
@@ -898,8 +917,8 @@ button{
   }
 
   #message .letterSign{
-    margin-top:10px;
-    font-size:.82rem;
+    margin-top:12px;
+    font-size:.88rem;
   }
 }
 </style>
